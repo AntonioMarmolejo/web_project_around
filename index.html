@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <link rel="stylesheet" href="/vendor/normalice.css" />
+    <link rel="stylesheet" href="/pages/index.css" />
     <link rel="stylesheet" href="/block/style.css" />
     <title>Around The US.</title>
   </head>
@@ -11,9 +13,33 @@
     <main class="main-page">
       <header class="header">
         <img src="./images/Vector.png" alt="Logo del Proyecto" />
-        <img src="./images/Line.png" alt="Linea detalle del Logo" />
+        <img
+          class="header__line"
+          src="./images/Line.png"
+          alt="Linea detalle del Logo"
+        />
       </header>
-      <section class="profile"></section>
+
+      <section class="profile">
+        <div class="profile profile__avatar">
+          <img
+            class="profile__avatar_image"
+            src="./images/image.jpg"
+            alt="Imagel de Jacques Cousteau"
+          />
+        </div>
+        <div class="profile profile__intro">
+          <h2 class="profile__intro profile__intro_name-explorer">
+            Jacques Cousteau
+          </h2>
+          <button class="profile__intro profile__intro_edit-button">
+            <img src="./images/Vector-pencil.png" alt="icono de pencil" />
+          </button>
+          <p class="profile__intro profile__intro_explorer">Explorer</p>
+        </div>
+        <div class="profile profile__add-button">╋</div>
+      </section>
+
       <footer class="footer"></footer>
     </main>
     <script src="/scripts.js"></script>
