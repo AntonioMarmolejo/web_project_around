@@ -210,7 +210,7 @@ img {
 .edit-form {
   display: grid;
   position: fixed;
-  margin-top: 11%;
+  margin-top: 8%;
   margin-left: 18%;
   font-family: "Inter-Regular", sans-serif;
   grid-template-rows: 32px 330px;
