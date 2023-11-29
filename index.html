@@ -9,10 +9,14 @@
     <link rel="stylesheet" href="/block/style.css" />
     <title>Around The US.</title>
   </head>
-  <body>
+  <body class="page">
     <main class="main-page">
       <header class="header">
-        <img src="./images/Vector-logo.svg" alt="Logo del Proyecto" />
+        <img
+          class="logo"
+          src="./images/Vector-logo.svg"
+          alt="Logo del Proyecto"
+        />
         <img
           class="header__line"
           src="./images/Line.png"
@@ -28,17 +32,20 @@
             alt="Imagel de Jacques Cousteau"
           />
         </div>
+
         <div class="profile profile__intro">
           <h2 class="profile__intro profile__intro_name-explorer">
             Jacques Cousteau
           </h2>
-          <button class="profile__intro profile__intro_edit-button">
+          <button class="profile__intro_edit-button">
             <img src="./images/Vector-pencil2.svg" alt="icono de pencil" />
           </button>
           <p class="profile__intro profile__intro_explorer">Explorer</p>
         </div>
-        <div class="profile profile__add-button">
+
+        <div class="profile__add-button">
           <img
+            class="profile__add-button_image"
             src="./images/Vector-suma-agregar.svg"
             alt="ícono de mas para agregar tarjetas"
           />
@@ -46,106 +53,96 @@
       </section>
 
       <section class="cards">
-        <div class="cards card__element">
+        <div class="card__element">
           <img
-            class="card__element card__element_image"
+            class="card__element_image"
             src="./images/kirill-pershin-1088404-unsplash.svg"
             alt="Yosemie Valley"
           />
-          <div class="card__element card__element_item">
-            <h2 class="card__element_item card__element_item-title">
-              Yosemite Valley
-            </h2>
+          <div class="card__element_item">
+            <h2 class="card__element_item-title">Yosemite Valley</h2>
             <img
-              class="card__element_item card__element_item-image"
+              class="card__element_item-image"
               src="./images/Vector-corazon.svg"
               alt="icono de me gusta"
             />
           </div>
         </div>
 
-        <div class="cards card__element">
+        <div class="card__element">
           <img
-            class="card__element card__element_image"
+            class="card__element_image"
             src="./images/Lake-louise.svg"
             alt="imagen de Lake Louise"
           />
-          <div class="card__element card__element_item">
-            <h2 class="card__element_item card__element_item-title">
-              Lake Louise
-            </h2>
+          <div class="card__element_item">
+            <h2 class="card__element_item-title">Lake Louise</h2>
             <img
-              class="card__element_item card__element_item-image"
+              class="card__element_item-image"
               src="./images/Vector-corazon.svg"
               alt="icono de me gusta"
             />
           </div>
         </div>
 
-        <div class="cards card__element">
+        <div class="card__element">
           <img
-            class="card__element card__element_image"
+            class="card__element_image"
             src="./images/Bald-Mountains.svg"
             alt="imagen de Bald Mountains"
           />
-          <div class="card__element card__element_item">
-            <h2 class="card__element_item card__element_item-title">
-              Bald Mountains
-            </h2>
+          <div class="card__element_item">
+            <h2 class="card__element_item-title">Bald Mountains</h2>
             <img
-              class="card__element_item card__element_item-image"
+              class="card__element_item-image"
               src="./images/Vector-corazon.svg"
               alt="icono de me gusta"
             />
           </div>
         </div>
 
-        <div class="cards card__element">
+        <div class="card__element">
           <img
-            class="card__element card__element_image"
+            class="card__element_image"
             src="./images/Latemar.svg"
             alt="imagen de Latemar"
           />
-          <div class="card__element card__element_item">
-            <h2 class="card__element_item card__element_item-title">Latemar</h2>
+          <div class="card__element_item">
+            <h2 class="card__element_item-title">Latemar</h2>
             <img
-              class="card__element_item card__element_item-image"
+              class="card__element_item-image"
               src="./images/Vector-corazon.svg"
               alt="incono de me gusta"
             />
           </div>
         </div>
 
-        <div class="cards card__element">
+        <div class="card__element">
           <img
-            class="card__element card__element_image"
+            class="card__element_image"
             src="./images/Vanoise-National.svg"
             alt="imagen de Vanoise National"
           />
-          <div class="card__element card__element_item">
-            <h2 class="card__element_item card__element_item-title">
-              Vanoise Nationalidades
-            </h2>
+          <div class="card__element_item">
+            <h2 class="card__element_item-title">Vanoise Nationalidades</h2>
             <img
-              class="card__element_item card__element_item-image"
+              class="card__element_item-image"
               src="./images/Vector-corazon.svg"
               alt="incono de me gusta"
             />
           </div>
         </div>
 
-        <div class="cards card__element">
+        <div class="card__element">
           <img
-            class="card__element card__element_image"
+            class="card__element_image"
             src="./images/Lago-di-Braies.svg"
             alt="imagen del Lago di Braies"
           />
-          <div class="card__element card__element_item">
-            <h2 class="card__element_item card__element_item-title">
-              Lago di Braies
-            </h2>
+          <div class="card__element_item">
+            <h2 class="card__element_item-title">Lago di Braies</h2>
             <img
-              class="card__element_item card__element_item-image"
+              class="card__element_item-image"
               src="./images/Vector-corazon.svg"
               alt="icono de me gusta"
             />
@@ -153,8 +150,40 @@
         </div>
       </section>
 
+      <section class="edit-form">
+        <img
+          class="edit-form_icono"
+          src="./images/Close Icon.svg"
+          alt="icono de cerrar el formulario"
+        />
+
+        <form class="form" action="Edit Profile">
+          <h2 class="form__title">Editar Profile</h2>
+
+          <label class="form__label" for="primer-nombre"></label>
+          <input
+            class="form__imput"
+            type="text"
+            id="primer-nombre"
+            placeholder="Ingrese el nombre"
+            value="Jacques Cousteau"
+          />
+
+          <label class="form__label" for="actividad"></label>
+          <input
+            class="form__imput"
+            type="text"
+            id="actividad"
+            placeholder="Ingrese profesión"
+            value="Explorer"
+          />
+
+          <button class="form__submi" type="submit">Guardar</button>
+        </form>
+      </section>
+
       <footer class="footer">
-        <p class="footer footer__copyright">&#169; 2023 Around The U.S.</p>
+        <p class="footer__copyright">&#169; 2023 Around The U.S.</p>
       </footer>
     </main>
     <script src="/scripts.js"></script>
