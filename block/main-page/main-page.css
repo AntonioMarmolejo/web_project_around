@@ -1,0 +1,9 @@
+.main-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1280px;
+  height: 100%;
+  background-color: var(--color-fondo-principal);
+  grid-column-start: 2;
+}

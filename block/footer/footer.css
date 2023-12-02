@@ -1,0 +1,9 @@
+.footer {
+  background-color: var(--color-fondo-principal);
+  margin-top: 66px;
+  margin-bottom: 60px;
+  width: 100%;
+  max-width: 880px;
+  height: 18px;
+  color: var(--color-textos-secundarios);
+}

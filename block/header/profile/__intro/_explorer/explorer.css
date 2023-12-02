@@ -1,0 +1,10 @@
+.profile__intro_explorer {
+  color: var(--color-secundario-textos-primarios-bordes);
+  width: 100%;
+  height: 22px;
+
+  font-family: "Inter-Italic", sans-serif;
+  font-size: 18px;
+  line-height: 21.78px;
+  font-weight: 400;
+}

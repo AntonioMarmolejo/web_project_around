@@ -1,0 +1,16 @@
+.profile__intro_edit-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-fondo-principal);
+  width: 24px;
+  height: 24px;
+  border: 1px solid white;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.profile__intro_edit-button:hover {
+  transform: scale(1.09, 1.09);
+  transition: 1s;
+  filter: brightness(70%);
+}

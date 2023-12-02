@@ -1,0 +1,12 @@
+.edit-form {
+  display: flex;
+  position: fixed;
+  width: 538px;
+  height: auto;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 8%;
+  font-family: "Inter-Regular", sans-serif;
+  z-index: 2;
+  display: none;
+}

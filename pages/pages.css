@@ -1,0 +1,7 @@
+.page {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 200px 1fr 200px;
+  background-color: var(--color-fondo-principal);
+  position: relative;
+}

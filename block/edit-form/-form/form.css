@@ -1,0 +1,20 @@
+input:focus {
+  outline-color: aqua;
+}
+
+input::-ms-input-placeholder {
+  font-family: "Inter-Italic", sans-serif;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 34px;
+  width: 430px;
+  height: 330px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 5px 5px 1px rgba(27, 25, 25, 0.829);
+  margin-right: auto;
+}

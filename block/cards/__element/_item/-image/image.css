@@ -1,0 +1,11 @@
+.card__element_item-image {
+  width: 20.76px;
+  height: 18.13px;
+  margin-right: 29px;
+  cursor: pointer;
+}
+.card__element_item-image:hover {
+  transition: 1s;
+  transform: scale(1.09, 1.09);
+  filter: opacity(60%);
+}

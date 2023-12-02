@@ -1,0 +1,11 @@
+.edit-form_icono {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  margin-left: auto;
+}
+.edit-form_icono:hover {
+  transition: 1s;
+  transform: scale(1.09, 1.09);
+  filter: brightness(70%);
+}

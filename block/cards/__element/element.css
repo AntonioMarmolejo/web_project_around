@@ -1,0 +1,7 @@
+.card__element {
+  width: 100%;
+  height: 362px;
+  border-radius: 10px 10px 10px 10px;
+  display: flex;
+  flex-direction: column;
+}
