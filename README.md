@@ -2,25 +2,27 @@
 
 ## DESCRIPCIÓN Y FUNCIONALIDAD
 
-Es una página hecha con el propósito de mostrar los lugares mas importantes de la madre patria, fue diseñanada para que sea totalmente responsiva y adaptable en computadoras así como para dispositivos celulares, pensada para poder interactuar con el usuario de una manera agradable y eficiente. Para este proyecto se utilizado el **HTML5**, así como **CSS**, se han empleado mediaqueries para permitir que la página se vea tanto en dispositivos celulares como en computadores. Entre las resoluciones que se tuvieron en cuenta están las de **1100px, 820px, 768px, 417px, 375px y 320px**, en cualquiera de estas pantallas la página se adaptará perfectamente.
+Es una página hecha con el propósito de mostrar una interfaz amigable para los usuarios con la idea de que puedan interactuar con la misma precionando los botones respectivos, se presenta el perfil del usuario con el nombre y la actividad a la que se dedica actualmente. Si el usuario quiere realizar algún cambio en el perfi, solo debe seleccionar el boton que está diseñado específicamente para eso, entonces se abrirá el formulario donde se le pedirá los datos al usuario.
 
-Las funcionalidades pricipales de esta página son, los botones de _Compra esta obra como NFT_ los cuales te llevan efectivamente a una página donde se puede compra un NFT, también el logo que nos llevará a la página oficial de _TRIPLETEN_ para poder ver otros curson como este, así mismo en el último bloque **cover**, se encuentra otro boton _Comprar Entradas_ La cual también los llevará un NFT real que se puede comprar.
+Las funcionalidades pricipales de esta página es el boton de editar **perfil** que nos permite abrir el formulario, dentro de este bloque también tenemos el otro boton interactivo que nos permite cerrar el formulario, también en el mismo bloque se encuentra el formulario, el cuarl contiene ademas los 2 **input** donde el usurio ingresará sus datos.
+
+También en bloque del formulario tenemos el boton **guardar** datos el cual nos sirve para almacenar los datos y remplazarlos en los bloques conrrespondientes.
 
 ## CARACTERÍSTICAS
 
-La página consta de un bloque principal con el nombre de **page** y dentro de este bloque están anidados los bloques **header, intro, photo-grid, places, cover y footer** respectivamente, dentro del bloque places, se encuentran 5 bloques place los cuales son los que contienen el título del lugar, una breve descripción del mismo, así como los botones cuyo código está anidado en un enlace con la clase **buttom** el cual es para comprar esa imagen como un NFT, al entrar en cualquiera de esto enlaces se abrirá una pesaña nueva la cual los llevará a la pagina de OpenSea para comprar un NFT, No es exactamente el de la página pero si es un ejemplo, tamtien se realizó un bloque **cover** en donde se crea un Overlay para que al pasar el cursor la imagen de oscuresca permitiendo poder ver el texto de una manera más clara, así mismo hay un enlace para poder acceder a comprar esa imagen como un NFT, este enlace los llevará a OpenSea para comprar un NFT muy agradable, naturalmente no es el mismo de la página pero es un buen ejemplo, el siguiente bloque es el **footer** en donde se puede ver el copyright y el nombre del Desarrollador de la página.
+La página consta de un bloque principal con el nombre de **page** y dentro de este bloque están anidados los bloques **main-page, header, profile, cards, edit-forma, overlay y footer** respectivamente, dentro de cada bloque se encuentran cada uno de sus elemento y modificadores asi, en el bloque **page** se encuentran almacenados el bloque **main-page**, y dentro del bloque **main-page** se encuentran almaceandos los bloques **header**, **profile**, **cards**, **edit-form**, **overlay** y el bloque **footer**.
 
 ## PROPÓSITO
 
-El propósito principal de este proyecto es fortalecer tanto el conocimiento, como la práctica de CSS, GRID LAYOUT, Y HTML en los estudiantes mediantes que la realizan, hacer que una página web estática, se convierte en una página completamente responsiva y adaptable para diferentes tipos de dispositivos desde donde la pueda visualizar, también ir conociendo la forma en la que se despliegan los trabajos en una empresa de tecnología, trabjar con mediqueries, trabjar con porcentajes y fracciones entre otros conocimientos importantes.
+El propósito principal de este proyecto es fortalecer el conocimiento en JavaScirp y que hagamos un recorderis de todo lo que hemos aprendido hasta ahora. Interactuar con los botones y ver çomo cómo se comportan, poder ver los cambios que se realizan en la pagina debido a estos botones.
 
 ## TÉCNICAS Y TECNOLOGÍAS UTILIZADAS
 
 1. Para el desarrollo de esta página se utilizó la metodología BEN para separar los bloques de sus elementos y los modificadore, también la misma metodología para organizar el sistema de archivos con el que se trabajó.
 2. Se separaron los archivos de estilos en bloques y se importaron con _@import()_ al index.css
 3. El index.css se referenció al documento html mediante la etiqueta _lick_ y de este modo todos los bloques obtienen sus estilos
-4. La página por defecta se la dejo con el idioma ingles en el meta
-5. Para las animaciones se utilizaron los _@keyframes_ y para que se adapte a los diferentes dispositivos se utilizaron _mediaqueries_ para las resoluciones **1100px, 820px, 768px, 414px, 375px, 320px** se adaptará correctamente.
+4. La página por defecto se la dejó en el idioma español.
+5. Para las animaciones se utilizaron los _@keyframes_ y para que se adapte a los diferentes dispositivos se utilizaron _mediaqueries_ para las resoluciones **1280px, 888px, 768px, 600px, 369px, 909px** se adaptará correctamente.
 6. Para que los enlaces resalten se utilizo el :hover y se le dió una animacíon para que sea más interactiva.
 7. Se utilizó como herramienta principal para la programación a _VISUAL STUDIO CODE_ desde donde se realizó todo
 8. Extención para identar el código se utilizó _Prettier - Code formatter, Prettier More_
@@ -33,18 +35,6 @@ El propósito principal de este proyecto es fortalecer tanto el conocimiento, co
 
 ## ENLACES
 
-[VISITA EL SITIO] ("DE PATRIA A PATRIA" https://antoniomarmolejo.github.io/web_project_homeland/)
+[VISITA EL SITIO] ("DE PATRIA A PATRIA" https://antoniomarmolejo.github.io/web_project_around/)
 
 [TRIPLETEN] ("Tripleten" https://tripleten.com/es-ecu/)
-
-[COMPRAR-NFT1] ("COMPRAR-NFT1" https://opensea.io/assets/ethereum/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/304000439)
-
-[COMPRAR-NFT2] ("COMPRAR-NFT2" https://opensea.io/assets/ethereum/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/304000037)
-
-[COMPRAR-NFT3] ("COMPRAR-NFT3" https://opensea.io/assets/ethereum/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/304000603)
-
-[COMPRAR-NFT4] ("COMPRAR-NFT4" https://opensea.io/assets/ethereum/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/304000071)
-
-[COMPRAR-NFT5] ("COMPRAR-NFT5" https://opensea.io/assets/ethereum/0xd66a159c593f775081847c1fb0f958734e1db9c0/1851)
-
-[COMPRAR-NFT6] ("COMPRAR-NFT6" https://opensea.io/assets/ethereum/0x0f94778a99d649cdb0a21daff08dbd96f1d446ed/2715)
