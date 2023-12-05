@@ -9,3 +9,23 @@
   grid-column-gap: 17px;
   grid-row-gap: 20px;
 }
+@media screen and (min-width: 320px) and (max-width: 600px) {
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    justify-items: center;
+  }
+}
+@media screen and (min-width: 601px) and (max-width: 768px) {
+  .cards {
+    grid-template-columns: 283px 283px;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 909px) {
+  .cards {
+    width: 90%;
+    grid-template-columns: 48% 48%;
+    justify-content: center;
+  }
+}
