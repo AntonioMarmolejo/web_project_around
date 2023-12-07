@@ -1,14 +1,14 @@
 //Se selecciona el bloque donde donde va la foto de perfil, el nombre, la actividad y el boton de editar perfil
-let botonPincelEditar = document.querySelector(".profile__intro_edit-button");
+let botonPincelEditar = document.querySelector(".profile__intro_editButton");
 
 //Se selecciona el elemento de la X para cerrar el formulario
-let inconoCerrarFomulario = document.querySelector(".edit-form_icono");
+let inconoCerrarFomulario = document.querySelector(".editForm__icono");
 
 //Se selecciona el bloque donde está todo el formulario incluyendo el boton X de cerrar
-let todoElformulario = document.querySelector(".edit-form");
+let todoElformulario = document.querySelector(".editForm");
 
 //Se selecciona el bloque donde va el nombre del usuario
-let nombreUsuario = document.querySelector(".profile__intro_name-explorer");
+let nombreUsuario = document.querySelector(".profile__intro_name");
 
 //Se selecciona el bloque dode va la actividad que realiza la el usuario
 let actividadUsuario = document.querySelector(".profile__intro_explorer");
