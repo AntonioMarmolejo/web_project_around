@@ -18,9 +18,11 @@ let actividadUsuario = document.querySelector(".profile__intro_explorer");
 
 //Se selecciona el identificador del formulario que es el input donde el usuario ingresara su nombre
 let entradaNombre = document.querySelector("#primer-nombre");
+let entradaTitulo = document.querySelector("#titulo");
 
 //Se selecciona el identificado del formulario que es el input donde el usuario ingresará su actividad
 let entradaActividad = document.querySelector("#actividad");
+let entradaEnlace = document.querySelector("#enlace_imagen");
 
 //Se selecciona el bloque que nos permite resaltar el formulario oscureciendo el fondo
 let overlayVentana = document.querySelector(".overlay");
@@ -78,11 +80,29 @@ iconCerrarFormularioTarjetas.addEventListener("click", cerrarAgregarTarjetas);
 //AGREGAR LA NUEVA TARJETA
 function agregarNuevaTarjeta(event) {
   event.preventDefault();
-  //Seleccionar el bloque cards
-  //clonar el contenido osea cards__alement
-  //a este contenido agregarle tel textContent
-  //que son los datos que ingresará el usuario
-  //Esta nueva tarjeta se agregará al principio con prepend()
+  //Seleccionamos el template donde vamos a crear la nueva tarjeta
+  let newElement = document.querySelector("#newElement").content;
+
+  //CONTENEDOR DONDE VAMOS A AGREGAR LA NUEVA TARJETA
+  let userOnline = document.querySelector(".cards");
+
+  //Clonamos el nodo de la tarjeta donde vamos a agregar el enlace
+  let userElement = newElement
+    .querySelector(".cards__element")
+    .cloneNode("true");
+
+  //Agregamos el enlace de la nueva imagen
+  userElement.querySelector(".cards__element_image").src = entradaEnlace.value;
+
+  //Agregamos el título de la nueva imagen
+  userElement.querySelector(".cards__element_itemTitle").textContent =
+    entradaTitulo.value;
+
+  //Esta nueva tarjeta se agregará al principio del bloque cards
+  userOnline.prepend(userElement);
+
   //luego cerrará el formulario
+  formularioTarjetas.style.display = "none";
+  overlayVentana.style.display = "none";
 }
 botonCrear.addEventListener("click", agregarNuevaTarjeta);
