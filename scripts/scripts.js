@@ -1,11 +1,14 @@
 //Se selecciona el bloque donde donde va la foto de perfil, el nombre, la actividad y el boton de editar perfil
 let botonPincelEditar = document.querySelector(".profile__intro_editButton");
+let botonAgregarImagen = document.querySelector(".profile__addButton");
 
 //Se selecciona el elemento de la X para cerrar el formulario
 let inconoCerrarFomulario = document.querySelector(".editForm__icono");
+let iconCerrarFormularioTarjetas = document.querySelector(".popup__icono");
 
 //Se selecciona el bloque donde está todo el formulario incluyendo el boton X de cerrar
 let todoElformulario = document.querySelector(".editForm");
+let formularioTarjetas = document.querySelector(".popup");
 
 //Se selecciona el bloque donde va el nombre del usuario
 let nombreUsuario = document.querySelector(".profile__intro_name");
@@ -24,6 +27,7 @@ let overlayVentana = document.querySelector(".overlay");
 
 //Se selecciona el botón que guardará nuestros datos y pondrá los datos ingresado en los bloques correspondientes
 let botonGuadar = document.querySelector(".form__submi");
+let botonCrear = document.querySelector(".popup__submi");
 
 //Función para cerrar el formulario y desactivar el overlay para esclarecer la página
 //al darle click en el boton cerrar que aparece en el formulario
@@ -56,3 +60,29 @@ function almacenarDatos(event) {
   overlayVentana.style.display = "none";
 }
 botonGuadar.addEventListener("click", almacenarDatos);
+
+//MOSTRAR EL FOMULARIO PARA AGREGAR TARJETA
+function abrirAgregarImagen() {
+  formularioTarjetas.style.display = "flex";
+  overlayVentana.style.display = "grid";
+}
+botonAgregarImagen.addEventListener("click", abrirAgregarImagen);
+
+//CERRAR EL FOMULARIO DE AGREGAR TARJETA
+function cerrarAgregarTarjetas() {
+  formularioTarjetas.style.display = "none";
+  overlayVentana.style.display = "none";
+}
+iconCerrarFormularioTarjetas.addEventListener("click", cerrarAgregarTarjetas);
+
+//AGREGAR LA NUEVA TARJETA
+function agregarNuevaTarjeta(event) {
+  event.preventDefault();
+  //Seleccionar el bloque cards
+  //clonar el contenido osea cards__alement
+  //a este contenido agregarle tel textContent
+  //que son los datos que ingresará el usuario
+  //Esta nueva tarjeta se agregará al principio con prepend()
+  //luego cerrará el formulario
+}
+botonCrear.addEventListener("click", agregarNuevaTarjeta);

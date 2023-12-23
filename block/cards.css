@@ -16,6 +16,21 @@
   border-radius: 10px 10px 10px 10px;
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+.cards__element_trast {
+  width: 18px;
+  height: 19px;
+  position: absolute;
+  right: 15px;
+  top: 18px;
+  cursor: pointer;
+}
+
+.cards__element_trast:hover {
+  transition: 1s;
+  transform: scale(1.09, 1.09);
+  filter: brightness(60%);
 }
 
 .cards__element_image {

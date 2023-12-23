@@ -51,8 +51,43 @@
         </div>
       </section>
 
+      <section class="popup">
+        <img
+          class="popup__icono"
+          src="./images/Close-Icon.svg"
+          alt="icono de cerrar el formulario"
+        />
+
+        <form class="popup__form" action="EditProfile">
+          <h2 class="popup__title">Nuevo lugar</h2>
+
+          <label class="popup__label" for="titulo"></label>
+          <input
+            class="popup__imput"
+            type="text"
+            id="titulo"
+            placeholder="Título de la tarjeta"
+            value="El gran cañon"
+          />
+
+          <label class="popup__label" for="enlace_imagen"></label>
+          <input
+            class="popup__imput"
+            type="text"
+            id="enlace_imagen"
+            placeholder="Enlace a la imagen"
+            value="https://unsplash.com/example.jpg"
+          />
+
+          <button class="popup__submi" type="submit">Crear</button>
+        </form>
+      </section>
+
       <section class="cards">
         <div class="cards__element">
+          <div class="cards__element_trast">
+            <img src="./images/Group__reciclaje.svg" alt="Icono de reciclaje" />
+          </div>
           <img
             class="cards__element_image"
             src="./images/kirill-pershin-1088404-unsplash.svg"
@@ -69,6 +104,9 @@
         </div>
 
         <div class="cards__element">
+          <div class="cards__element_trast">
+            <img src="./images/Group__reciclaje.svg" alt="Icono de reciclaje" />
+          </div>
           <img
             class="cards__element_image"
             src="./images/Lake-louise.svg"
@@ -85,6 +123,9 @@
         </div>
 
         <div class="cards__element">
+          <div class="cards__element_trast">
+            <img src="./images/Group__reciclaje.svg" alt="Icono de reciclaje" />
+          </div>
           <img
             class="cards__element_image"
             src="./images/Bald-Mountains.svg"
@@ -101,6 +142,9 @@
         </div>
 
         <div class="cards__element">
+          <div class="cards__element_trast">
+            <img src="./images/Group__reciclaje.svg" alt="Icono de reciclaje" />
+          </div>
           <img
             class="cards__element_image"
             src="./images/Latemar.svg"
@@ -117,6 +161,9 @@
         </div>
 
         <div class="cards__element">
+          <div class="cards__element_trast">
+            <img src="./images/Group__reciclaje.svg" alt="Icono de reciclaje" />
+          </div>
           <img
             class="cards__element_image"
             src="./images/Vanoise-National.svg"
@@ -133,6 +180,9 @@
         </div>
 
         <div class="cards__element">
+          <div class="cards__element_trast">
+            <img src="./images/Group__reciclaje.svg" alt="Icono de reciclaje" />
+          </div>
           <img
             class="cards__element_image"
             src="./images/Lago-di-Braies.svg"
@@ -159,7 +209,7 @@
         <form class="form" action="EditProfile">
           <h2 class="form__title">Editar Profile</h2>
 
-          <label class="form__label" for="primer-nombre"></label>
+          <label for="primer-nombre"></label>
           <input
             class="form__imput"
             type="text"
@@ -168,7 +218,7 @@
             value="Jacques Cousteau"
           />
 
-          <label class="form__label" for="actividad"></label>
+          <label for="actividad"></label>
           <input
             class="form__imput"
             type="text"
