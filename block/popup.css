@@ -1,3 +1,32 @@
+@keyframes opacidadPopup {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes opacidad {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes opacidadReverso {
+  0% {
+    opacity: 1;
+    display: flex;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+
 .popup {
   display: flex;
   position: fixed;
@@ -10,6 +39,14 @@
   z-index: 2;
   display: none;
 }
+.popup.show {
+  animation: opacidadPopup 0.5s;
+}
+
+.hidePopup {
+  animation: opacidadReverso 0.5s ease-in-out;
+}
+
 input:focus {
   outline-color: aqua;
 }
