@@ -1,5 +1,5 @@
 //Se selecciona el bloque donde donde va la foto de perfil, el nombre, la actividad y el boton de editar perfil
-let botonPincelEditar = document.querySelector(".profile__intro_editButton");
+let botonPincelEditar = document.querySelector(".profile__editButton");
 let botonAgregarImagen = document.querySelector(".profile__addButton");
 
 //Se selecciona el elemento de la X para cerrar el formulario

@@ -32,7 +32,7 @@
   margin-bottom: 0;
 }
 
-.profile__intro_editButton {
+.profile__editButton {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -43,7 +43,7 @@
   border-radius: 2px;
   cursor: pointer;
 }
-.profile__intro_editButton:hover {
+.profile__editButton:hover {
   transform: scale(1.09, 1.09);
   transition: 1s;
   filter: brightness(70%);
