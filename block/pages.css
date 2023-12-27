@@ -20,8 +20,6 @@
   .page {
     display: flex;
     align-items: center;
-  }
-  .page {
     width: 100%;
   }
 }

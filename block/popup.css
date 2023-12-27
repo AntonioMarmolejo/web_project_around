@@ -169,7 +169,6 @@ input::-ms-input-placeholder {
     display: none;
     position: fixed;
     margin-top: 12%;
-    margin-left: 18%;
     font-family: "Inter-Regular", sans-serif;
     grid-template-rows: 32px 330px;
     margin-left: 3%;
@@ -227,7 +226,6 @@ input::-ms-input-placeholder {
     display: none;
     position: fixed;
     margin-top: 12%;
-    margin-left: 18%;
     font-family: "Inter-Regular", sans-serif;
     grid-template-rows: 32px 330px;
     margin-left: 3%;
