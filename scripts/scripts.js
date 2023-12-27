@@ -1,14 +1,14 @@
 //Se selecciona el bloque donde donde va la foto de perfil, el nombre, la actividad y el boton de editar perfil
-let botonPincelEditar = document.querySelector(".profile__editButton");
-let botonAgregarImagen = document.querySelector(".profile__addButton");
+const botonPincelEditar = document.querySelector(".profile__editButton");
+const botonAgregarImagen = document.querySelector(".profile__addButton");
 
 //Se selecciona el elemento de la X para cerrar el formulario
-let inconoCerrarFomulario = document.querySelector(".editForm__icono");
-let iconCerrarFormularioTarjetas = document.querySelector(".popup__icono");
+const inconoCerrarFomulario = document.querySelector(".editForm__icono");
+const iconCerrarFormularioTarjetas = document.querySelector(".popup__icono");
 
 //Se selecciona el bloque donde está todo el formulario incluyendo el boton X de cerrar
-let todoElformulario = document.querySelector(".editForm");
-let formularioTarjetas = document.querySelector(".popup");
+const todoElformulario = document.querySelector(".editForm");
+const formularioTarjetas = document.querySelector(".popup");
 
 //Se selecciona el bloque donde va el nombre del usuario
 let nombreUsuario = document.querySelector(".profile__intro_name");
@@ -25,13 +25,13 @@ let entradaActividad = document.querySelector("#actividad");
 let entradaEnlace = document.querySelector("#enlace_imagen");
 
 //Se selecciona el bloque que nos permite resaltar el formulario oscureciendo el fondo
-let overlayVentana = document.querySelector(".overlay");
+const overlayVentana = document.querySelector(".overlay");
 
 //Se selecciona el botón que guardará nuestros datos y pondrá los datos ingresado en los bloques correspondientes
-let botonGuadar = document.querySelector(".form__submi");
-let botonCrear = document.querySelector(".popup__submi");
+const botonGuadar = document.querySelector(".form__submi");
+const botonCrear = document.querySelector(".popup__submi");
 let botonDeMegusta = document.querySelector(".cards__element_itemImagen");
-let botonReciclaje = document.querySelector(".cards__element_trast");
+const botonReciclaje = document.querySelector(".cards__element_trast");
 
 //Función para cerrar el formulario y desactivar el overlay para esclarecer la página
 //al darle click en el boton cerrar que aparece en el formulario
@@ -57,32 +57,32 @@ const initialCards = [
   {
     name: "Valle de Yosemite",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg",
-    alt: "imagen Yosemie Valley",
+    alt: "Valle Yosemie Valley",
   },
   {
     name: "Lago Louise",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg",
-    alt: "imagen de Lake Louise",
+    alt: "Lago Lake Louise",
   },
   {
     name: "Montañas Calvas",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/bald-mountains.jpg",
-    alt: "imagen de Bald Mountains",
+    alt: "Bald Mountains",
   },
   {
     name: "Latemar",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/latemar.jpg",
-    alt: "imagen de Latemar",
+    alt: "Latemar",
   },
   {
     name: "Parque Nacional de la Vanoise",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg",
-    alt: "imagen de Vanoise National",
+    alt: "Vanoise National",
   },
   {
     name: "Lago di Braies",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg",
-    alt: "imagen del Lago di Braies",
+    alt: "Lago di Braies",
   },
 ];
 
@@ -123,11 +123,13 @@ function tarjetasPrincipales() {
     const modal = document.querySelector(".modal");
     const modalImage = document.querySelector("#modalImage");
     const modalClose = document.querySelector(".modal-close");
+    const nombreModal = document.querySelector(".nombreModal");
     //Itera sobre cada imagen y agrega un avento click a cada una de ellas
     imagenes.forEach((imagen) => {
       //Establece la imagen clicada sobre la ventana emergente
       imagen.addEventListener("click", () => {
         modalImage.src = imagen.src;
+        nombreModal.textContent = imagen.alt;
         modal.classList.add("show");
         //Mustra la ventana amergente
         modal.style.display = "grid";
@@ -222,12 +224,14 @@ function agregarNuevaTarjeta(event) {
   const modal = document.querySelector(".modal");
   const modalImage = document.querySelector("#modalImage");
   const modalClose = document.querySelector(".modal-close");
+  const nombreModal = document.querySelector(".nombreModal");
   //Itera sobre cada imagen y agrega un avento click a cada una de ellas
   imagenes.forEach((item) => {
     //Establece la imagen clicada sobre la ventana emergente
     item.addEventListener("click", () => {
       modalImage.src = item.src;
       modal.classList.add("show");
+      nombreModal.textContent = item.alt;
       //Mustra la ventana amergente
       modal.style.display = "grid";
     });

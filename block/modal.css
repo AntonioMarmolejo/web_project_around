@@ -57,6 +57,7 @@
   height: 90%;
   object-fit: contain;
   margin-top: 0px;
+  position: relative;
 }
 .modal-close {
   display: flex;
@@ -78,15 +79,25 @@
   transform: scale(1.09, 1.09);
 }
 .nombreModal {
+  position: absolute;
+  display: flex;
   color: white;
-  width: 291px;
-  height: 12px;
-  font-family: "Inter-Black", sans-serif;
+  width: 15%;
+  height: 30px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-family: "Inter-Italic", sans-serif;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 20px;
   line-height: 14px;
-  z-index: 3;
+  border: 1px solid red;
+  align-items: center;
+  left: 43%;
+  top: 1%;
+  z-index: 998;
 }
+
 @media screen and (min-width: 320px) and (max-width: 600px) {
   .modal {
     height: 100%;
