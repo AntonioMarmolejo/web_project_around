@@ -11,7 +11,7 @@ const todoElformulario = document.querySelector(".editForm");
 const formularioTarjetas = document.querySelector(".popup");
 
 //Se selecciona el bloque donde va el nombre del usuario
-let nombreUsuario = document.querySelector(".profile__intro_name");
+const nombreUsuario = document.querySelector(".profile__intro_name");
 
 //Se selecciona el bloque dode va la actividad que realiza la el usuario
 let actividadUsuario = document.querySelector(".profile__intro_explorer");
@@ -33,26 +33,6 @@ const botonCrear = document.querySelector(".popup__submi");
 let botonDeMegusta = document.querySelector(".cards__element_itemImagen");
 const botonReciclaje = document.querySelector(".cards__element_trast");
 
-//Función para cerrar el formulario y desactivar el overlay para esclarecer la página
-//al darle click en el boton cerrar que aparece en el formulario
-function cerrarFormulario() {
-  todoElformulario.classList.remove("show");
-  overlayVentana.style.display = "none";
-  todoElformulario.classList.add("hideform");
-  todoElformulario.style.display = "none";
-}
-inconoCerrarFomulario.addEventListener("click", cerrarFormulario);
-
-//Función para mostrar el formulario y activar el overlay para resaltar el formulario
-//al darle click en el boton de lapiz que se encuentra en el perfil de usuario
-function abrirFormulario() {
-  todoElformulario.style.display = "flex";
-  overlayVentana.style.display = "grid";
-  todoElformulario.classList.add("show");
-}
-botonPincelEditar.addEventListener("click", abrirFormulario);
-
-//ARRAY DE IMÁGNES QUE SE VAN A CARGAR EN LA PAGINA POR DEFECTO
 const initialCards = [
   {
     name: "Valle de Yosemite",
@@ -85,6 +65,24 @@ const initialCards = [
     alt: "Lago di Braies",
   },
 ];
+//Función para cerrar el formulario y desactivar el overlay para esclarecer la página
+//al darle click en el boton cerrar que aparece en el formulario
+function cerrarFormulario() {
+  todoElformulario.classList.toggle("show");
+  overlayVentana.style.display = "none";
+  todoElformulario.classList.add("hideform");
+  todoElformulario.style.display = "none";
+}
+inconoCerrarFomulario.addEventListener("click", cerrarFormulario);
+
+//Función para mostrar el formulario y activar el overlay para resaltar el formulario
+//al darle click en el boton de lapiz que se encuentra en el perfil de usuario
+function abrirFormulario() {
+  todoElformulario.style.display = "flex";
+  overlayVentana.style.display = "grid";
+  todoElformulario.classList.add("show");
+}
+botonPincelEditar.addEventListener("click", abrirFormulario);
 
 //Función para crear la 6 tarjetas principales que se cargaran por defecto
 function tarjetasPrincipales() {
@@ -117,35 +115,35 @@ function tarjetasPrincipales() {
         intemList.remove();
       });
 
-    //Obtener la lista de todas las imágnes emergentes
-    const imagenes = document.querySelectorAll(".cards__element_image");
-    //Obtener la ventana emergente y su contenido
-    const modal = document.querySelector(".modal");
-    const modalImage = document.querySelector("#modalImage");
-    const modalClose = document.querySelector(".modal-close");
-    const nombreModal = document.querySelector(".nombreModal");
-    //Itera sobre cada imagen y agrega un avento click a cada una de ellas
-    imagenes.forEach((imagen) => {
-      //Establece la imagen clicada sobre la ventana emergente
-      imagen.addEventListener("click", () => {
-        modalImage.src = imagen.src;
-        nombreModal.textContent = imagen.alt;
-        modal.classList.add("show");
-        //Mustra la ventana amergente
-        modal.style.display = "grid";
+    cadaTarjetaPrincipal
+      .querySelector(".cards__element_image")
+      .addEventListener("click", function () {
+        mostrarImagenModal(item.link, item.alt);
       });
-    });
-
-    modalClose.addEventListener("click", () => {
-      modal.classList.remove("show");
-      modal.classList.add("hide");
-      modal.style.display = "none";
-    });
-
     //Agregar las tarjetas al contenedor principal
     contenedorCards.appendChild(cadaTarjetaPrincipal);
   });
 }
+
+function mostrarImagenModal(src, alt) {
+  const modal = document.querySelector(".modal");
+  const modalImage = document.querySelector("#modalImage");
+  const modalClose = document.querySelector(".modal-close");
+  const nombreModal = document.querySelector(".nombreModal");
+
+  modalImage.src = src;
+  nombreModal.textContent = alt;
+  modal.classList.add("show");
+  //Mustra la ventana amergente
+  modal.style.display = "grid";
+
+  modalClose.addEventListener("click", () => {
+    modal.classList.remove("show");
+    modal.classList.add("hide");
+    modal.style.display = "none";
+  });
+}
+
 //Crear las tarjetas cuando se cargue la página
 window.addEventListener("load", tarjetasPrincipales);
 
