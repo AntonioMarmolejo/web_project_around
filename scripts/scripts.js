@@ -14,15 +14,15 @@ const formularioTarjetas = document.querySelector(".popup");
 const nombreUsuario = document.querySelector(".profile__intro_name");
 
 //Se selecciona el bloque dode va la actividad que realiza la el usuario
-let actividadUsuario = document.querySelector(".profile__intro_explorer");
+const actividadUsuario = document.querySelector(".profile__intro_explorer");
 
 //Se selecciona el identificador del formulario que es el input donde el usuario ingresara su nombre
-let entradaNombre = document.querySelector("#primer-nombre");
-let entradaTitulo = document.querySelector("#titulo");
+const entradaNombre = document.querySelector("#primer-nombre");
+const entradaTitulo = document.querySelector("#titulo");
 
 //Se selecciona el identificado del formulario que es el input donde el usuario ingresará su actividad
-let entradaActividad = document.querySelector("#actividad");
-let entradaEnlace = document.querySelector("#enlace_imagen");
+const entradaActividad = document.querySelector("#actividad");
+const entradaEnlace = document.querySelector("#enlace_imagen");
 
 //Se selecciona el bloque que nos permite resaltar el formulario oscureciendo el fondo
 const overlayVentana = document.querySelector(".overlay");
@@ -30,8 +30,12 @@ const overlayVentana = document.querySelector(".overlay");
 //Se selecciona el botón que guardará nuestros datos y pondrá los datos ingresado en los bloques correspondientes
 const botonGuadar = document.querySelector(".form__submi");
 const botonCrear = document.querySelector(".popup__submi");
-let botonDeMegusta = document.querySelector(".cards__element_itemImagen");
+const botonDeMegusta = document.querySelector(".cards__element_itemImagen");
 const botonReciclaje = document.querySelector(".cards__element_trast");
+
+const cardsArea = document.querySelector(".cards");
+
+const formAddCard = document.querySelector(".popup__form");
 
 const initialCards = [
   {
@@ -87,60 +91,8 @@ botonPincelEditar.addEventListener("click", abrirFormulario);
 //Función para crear la 6 tarjetas principales que se cargaran por defecto
 function tarjetasPrincipales() {
   initialCards.forEach((item) => {
-    let tarjetaPrincipal = document.querySelector("#newElement").content;
-    let contenedorCards = document.querySelector(".cards");
-
-    let cadaTarjetaPrincipal = tarjetaPrincipal
-      .querySelector(".cards__element")
-      .cloneNode("true");
-
-    //Crea un alemento para cada tarjeta y le da los atributos
-    cadaTarjetaPrincipal.querySelector(".cards__element_image").src = item.link;
-    cadaTarjetaPrincipal.querySelector(
-      ".cards__element_itemTitle"
-    ).textContent = item.name;
-    cadaTarjetaPrincipal.querySelector(".cards__element_image").alt = item.alt;
-    //Para cambiar el color del boton me gusta al momento de darle click
-    cadaTarjetaPrincipal
-      .querySelector(".cards__element_itemImage")
-      .addEventListener("click", function (event) {
-        event.target.classList.toggle("cards__like_active");
-      });
-
-    //Para eliminar la tarjeta seleccionada
-    cadaTarjetaPrincipal
-      .querySelector(".cards__element_trast")
-      .addEventListener("click", function () {
-        const intemList = cadaTarjetaPrincipal.closest(".cards__element");
-        intemList.remove();
-      });
-
-    cadaTarjetaPrincipal
-      .querySelector(".cards__element_image")
-      .addEventListener("click", function () {
-        mostrarImagenModal(item.link, item.alt);
-      });
-    //Agregar las tarjetas al contenedor principal
-    contenedorCards.appendChild(cadaTarjetaPrincipal);
-  });
-}
-
-function mostrarImagenModal(src, alt) {
-  const modal = document.querySelector(".modal");
-  const modalImage = document.querySelector("#modalImage");
-  const modalClose = document.querySelector(".modal-close");
-  const nombreModal = document.querySelector(".nombreModal");
-
-  modalImage.src = src;
-  nombreModal.textContent = alt;
-  modal.classList.add("show");
-  //Mustra la ventana amergente
-  modal.style.display = "grid";
-
-  modalClose.addEventListener("click", () => {
-    modal.classList.remove("show");
-    modal.classList.add("hide");
-    modal.style.display = "none";
+    const nuevoNodo = agregarNuevaTarjeta(item.link, item.name);
+    cardsArea.append(nuevoNodo);
   });
 }
 
@@ -152,8 +104,8 @@ window.addEventListener("load", tarjetasPrincipales);
 function almacenarDatos(event) {
   event.preventDefault();
 
-  let nuevoUsuario = entradaNombre.value;
-  let nuevaActividad = entradaActividad.value;
+  const nuevoUsuario = entradaNombre.value;
+  const nuevaActividad = entradaActividad.value;
 
   nombreUsuario.textContent = nuevoUsuario;
   actividadUsuario.textContent = nuevaActividad;
@@ -173,7 +125,7 @@ botonAgregarImagen.addEventListener("click", abrirAgregarImagen);
 
 //CERRAR EL FOMULARIO DE AGREGAR TARJETA
 function cerrarAgregarTarjetas() {
-  formularioTarjetas.classList.remove("show");
+  formularioTarjetas.classList.toggle("show");
   overlayVentana.style.display = "none";
   formularioTarjetas.classList.add("hidePopup");
   formularioTarjetas.style.display = "none";
@@ -181,79 +133,77 @@ function cerrarAgregarTarjetas() {
 iconCerrarFormularioTarjetas.addEventListener("click", cerrarAgregarTarjetas);
 
 //AGREGAR LA NUEVA TARJETA QUE INGRESA EL USUARIO
-function agregarNuevaTarjeta(event) {
-  event.preventDefault();
-  //Seleccionamos el template donde vamos a crear la nueva tarjeta
-  let newElement = document.querySelector("#newElement").content;
 
-  //CONTENEDOR DONDE VAMOS A AGREGAR LA NUEVA TARJETA
-  let userOnline = document.querySelector(".cards");
+function agregarNuevaTarjeta(link, title) {
+  //Seleccionamos el template donde vamos a crear la nueva tarjeta
+  const newElement = document.querySelector("#newElement").content;
 
   //Clonamos el nodo de la tarjeta donde vamos a agregar el enlace
-  let userElement = newElement
+  const userElement = newElement
     .querySelector(".cards__element")
     .cloneNode("true");
 
   //Agregamos el enlace de la nueva imagen
-  userElement.querySelector(".cards__element_image").src = entradaEnlace.value;
+  userElement.querySelector(".cards__element_image").src = link;
 
   //Agregamos el título de la nueva imagen
-  userElement.querySelector(".cards__element_itemTitle").textContent =
-    entradaTitulo.value;
+  userElement.querySelector(".cards__element_itemTitle").textContent = title;
 
-  //Para cambiar el color del boton me gusta al momento de darle click
   userElement
     .querySelector(".cards__element_itemImage")
     .addEventListener("click", function (event) {
       event.target.classList.toggle("cards__like_active");
     });
 
-  //Para eliminar la tarjeta seleccionada
   userElement
     .querySelector(".cards__element_trast")
     .addEventListener("click", function () {
-      const intemList = userElement.closest(".cards__element");
-      intemList.remove();
+      userElement.remove();
     });
 
-  //Obtener la lista de todas las imágnes emergentes
-  const imagenes = document.querySelectorAll(".cards__element_image");
-  //Obtener la ventana emergente y su contenido
+  userElement
+    .querySelector(".cards__element_image")
+    .addEventListener("click", function () {
+      mostrarImagenModal(link, title);
+    });
+  return userElement;
+}
+formAddCard.addEventListener("submit", function (event) {
+  event.preventDefault();
+  const link = entradaEnlace.value;
+  const title = entradaTitulo.value;
+  const nuevoNodo = agregarNuevaTarjeta(link, title);
+
+  //Se limpian las entradas para que el usuario no tenga que borrarlas
+  const limpiarEntradaTitulo = (document.querySelector(".popup__imput").value =
+    "");
+  const limpiarEntradaEnlace = (document.querySelector("#enlace_imagen").value =
+    "");
+  cardsArea.prepend(nuevoNodo);
+  //Esta nueva tarjeta se agregará al principio del bloque cards
+
+  //luego cerrará el formulario suavemente
+  formularioTarjetas.classList.toggle("show");
+  overlayVentana.style.display = "none";
+  formularioTarjetas.classList.add("hidePopup");
+  formularioTarjetas.style.display = "none";
+});
+
+function mostrarImagenModal(src, alt) {
   const modal = document.querySelector(".modal");
   const modalImage = document.querySelector("#modalImage");
   const modalClose = document.querySelector(".modal-close");
   const nombreModal = document.querySelector(".nombreModal");
-  //Itera sobre cada imagen y agrega un avento click a cada una de ellas
-  imagenes.forEach((item) => {
-    //Establece la imagen clicada sobre la ventana emergente
-    item.addEventListener("click", () => {
-      modalImage.src = item.src;
-      modal.classList.add("show");
-      nombreModal.textContent = item.alt;
-      //Mustra la ventana amergente
-      modal.style.display = "grid";
-    });
-  });
+
+  modalImage.src = src;
+  nombreModal.textContent = alt;
+  modal.classList.add("show");
+  //Mustra la ventana amergente
+  modal.style.display = "grid";
 
   modalClose.addEventListener("click", () => {
-    modal.classList.remove("show");
+    modal.classList.toggle("show");
     modal.classList.add("hide");
     modal.style.display = "none";
   });
-
-  //Esta nueva tarjeta se agregará al principio del bloque cards
-  userOnline.prepend(userElement);
-
-  //luego cerrará el formulario suavemente
-  formularioTarjetas.classList.remove("show");
-  overlayVentana.style.display = "none";
-  formularioTarjetas.classList.add("hidePopup");
-  formularioTarjetas.style.display = "none";
-
-  //Se limpian las entradas para el usuario no tenga que borrarlas
-  let limpiarEntradaTitulo = (document.querySelector(".popup__imput").value =
-    "");
-  let limpiarEntradaEnlace = (document.querySelector("#enlace_imagen").value =
-    "");
 }
-botonCrear.addEventListener("click", agregarNuevaTarjeta);

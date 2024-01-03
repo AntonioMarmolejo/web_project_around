@@ -47,11 +47,11 @@
   height: 95%;
 }
 .modal.show {
-  animation: opacidad 0.2s;
+  animation: opacidad 0.3s;
 }
 
 .hide {
-  animation: opacidadReverso 0.2s ease-in-out;
+  animation: opacidadReverso 0.3s ease-in-out;
 }
 
 .modal-content {
