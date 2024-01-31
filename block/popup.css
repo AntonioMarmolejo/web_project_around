@@ -1,33 +1,4 @@
-@keyframes opacidadPopup {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes opacidad {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes opacidadReverso {
-  0% {
-    opacity: 1;
-    display: flex;
-  }
-  100% {
-    opacity: 0;
-    display: none;
-  }
-}
-
-.popup {
+/* .popup {
   position: fixed;
   width: 538px;
   height: auto;
@@ -277,4 +248,112 @@ input::-ms-input-placeholder {
     border-radius: 10px 10px 10px 10px;
     box-shadow: 0 5px 5px 1px rgba(27, 25, 25, 0.829);
   }
+}  */
+
+.popup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+
+  transition: all ease 0.5s;
+}
+
+.popup_show {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: all;
+}
+
+input:focus {
+  outline-color: aqua;
+}
+input::-ms-input-placeholder {
+  font-family: "Inter-Black", sans-serif;
+}
+
+.popup__close-button {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  position: relative;
+  left: 450px;
+  top: 7px;
+}
+.popup__content_edit-profile {
+  z-index: 2;
+}
+.popup__content_add-card {
+  z-index: 2;
+}
+.popup__content_image {
+  z-index: 2;
+}
+
+.popup__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: black;
+  opacity: 0.8;
+  width: 100%;
+  height: 100%;
+}
+.popup__content {
+  width: 450px;
+  z-index: 2;
+  font-family: "Inter-Black";
+}
+.popup__close-button:hover {
+  transition: 0.5s;
+  transform: scale(1.04, 1.04);
+  filter: brightness(70%);
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 34px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 5px 5px 1 rgba(27, 25, 25, 0.829);
+}
+
+.form__title {
+  margin-top: 0;
+  margin-bottom: 54px;
+  text-align: left;
+}
+.form__input {
+  border: none;
+  margin-bottom: 29px;
+  height: 27px;
+  background-color: rgba(238, 218, 218, 0.616);
+  font-family: "Inter-Regular", sans-serif;
+}
+.submit {
+  margin-top: 19px;
+  height: 60px;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 5px 1px rgba(27, 25, 25, 0.993);
+  cursor: pointer;
+  font-size: 25px;
+  font-family: "Inter-Regular", sans-serif;
+}
+
+.submit:hover {
+  background-color: rgba(0, 0, 0, 0.827);
+  transition: 0.5s ease;
+  transform: scale(1.03, 1.03);
 }

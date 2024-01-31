@@ -4,10 +4,8 @@
 @import url("../block/pages.css");
 @import url("../block/main-page.css");
 @import url("../block/header.css");
-@import url("../block/profile.css");
+@import url("../block/buttons.css");
 @import url("../block/popup.css");
 @import url("../block/cards.css");
-@import url("../block/modal.css");
-@import url("../block/edit-form.css");
-@import url("../block/overlay.css");
+@import url("../block/popup__content_image.css");
 @import url("../block/footer.css");

@@ -23,73 +23,118 @@
         />
       </header>
 
-      <section class="profile">
-        <div class="profile profile__avatar">
+      <div class="buttons">
+        <div class="buttons buttons__avatar">
           <img
-            class="profile__image"
+            class="buttons__image"
             src="./images/image.jpg"
             alt="Imagel de Jacques Cousteau"
           />
         </div>
 
-        <div class="profile profile__intro">
-          <h2 class="profile__intro profile__intro_name">Jacques Cousteau</h2>
+        <div class="buttons buttons__intro">
+          <h2 class="buttons__intro buttons__name">Jacques Cousteau</h2>
 
-          <button class="profile__editButton">
+          <button class="buttons__item buttons__item_index_profile">
             <img src="./images/Vector-pencil2.svg" alt="icono de pencil" />
           </button>
 
-          <p class="profile__intro profile__intro_explorer">Explorer</p>
+          <p class="buttons__intro buttons__explorer">Explorer</p>
         </div>
 
-        <div class="profile__addButton">
+        <button class="buttons__item buttons__item_index_add-card">
           <img
             src="./images/Vector-suma-agregar.svg"
             alt="ícono de mas para agregar tarjetas"
           />
+        </button>
+
+        <div class="buttons__item_index_image"></div>
+      </div>
+
+      <div class="popup popup__content_edit-profile">
+        <div class="popup__overlay"></div>
+        <div class="popup__content">
+          <div class="popup__close-button">
+            <img src="./images/Close-Icon.svg" alt="" />
+          </div>
+
+          <form action="" class="form">
+            <h2 class="form__title">Editar perfil</h2>
+
+            <label for="Nombre-usuario"></label>
+            <input
+              type="text"
+              class="form__input"
+              id="Nombre-usuario"
+              placeholder="Nuevo usuario"
+              value="Jacques Cousteau"
+            />
+
+            <label for="Actividad"></label>
+            <input
+              type="text"
+              class="form__input"
+              id="Actividad"
+              placeholder="Actividad"
+              value="Explorador"
+            />
+
+            <input type="submit" class="submit" value="Guardar" />
+          </form>
         </div>
-      </section>
+      </div>
 
-      <section class="popup">
-        <img
-          class="popup__icono"
-          src="./images/Close-Icon.svg"
-          alt="icono de cerrar el formulario"
-        />
+      <div class="popup popup__content_add-card">
+        <div class="popup__overlay"></div>
+        <div class="popup__content">
+          <div class="popup__close-button">
+            <img src="./images/Close-Icon.svg" alt="" />
+          </div>
 
-        <form class="popup__form" action="EditProfile">
-          <h2 class="popup__title">Nuevo lugar</h2>
+          <form action="" class="form">
+            <h2 class="form__title">Nueva tarjeta</h2>
 
-          <label class="popup__label" for="titulo"></label>
-          <input
-            class="popup__imput"
-            type="text"
-            id="titulo"
-            placeholder="Título de la tarjeta"
-            value=""
+            <label for="Nombre"></label>
+            <input
+              type="text"
+              class="form__input"
+              id="Nombre"
+              placeholder="Nombre del lugar"
+              value=""
+            />
+
+            <label for="Enlace"></label>
+            <input
+              type="text"
+              class="form__input"
+              id="Enlace"
+              placeholder="Enlace de la imagen"
+              value=""
+            />
+
+            <input type="submit" class="submit" value="Crear" />
+          </form>
+        </div>
+      </div>
+
+      <div class="popup popup__content_image">
+        <div class="popup__overlay"></div>
+        <div class="popup__content popup__content_select">
+          <div class="popup__close-button popup__close-buttons">
+            <img src="./images/Close-Icon.svg" alt="" />
+          </div>
+          <img
+            src="#"
+            alt="Imagen seleccionada"
+            class="popup__image"
+            id="popup__image"
           />
-
-          <label class="popup__label" for="enlace_imagen"></label>
-          <input
-            class="popup__imput"
-            type="text"
-            id="enlace_imagen"
-            placeholder="Enlace a la imagen"
-            value=""
-          />
-
-          <button class="popup__submi" type="submit">Crear</button>
-        </form>
-      </section>
+          <p class="popup__title"></p>
+        </div>
+      </div>
 
       <section class="cards"></section>
-
-      <div class="modal">
-        <span class="modal-close">&times;</span>
-
-        <img class="modal-content" id="modalImage" src="#" alt="" />
-        <h2 class="nombreModal"></h2>
-      </div>
 
       <template id="newElement">
         <div class="cards__element">
@@ -112,42 +157,10 @@
         </div>
       </template>
 
-      <section class="editForm">
-        <img
-          class="editForm__icono"
-          src="./images/Close-Icon.svg"
-          alt="icono de cerrar el formulario"
-        />
-
-        <form class="form">
-          <h2 class="form__title">Editar Profile</h2>
-
-          <label for="primer-nombre"></label>
-          <input
-            class="form__imput"
-            type="text"
-            id="primer-nombre"
-            placeholder="Ingrese el nombre"
-            value="Jacques Cousteau"
-          />
-
-          <label for="actividad"></label>
-          <input
-            class="form__imput"
-            type="text"
-            id="actividad"
-            placeholder="Acerca de mi"
-            value="Explorer"
-          />
-
-          <button class="form__submi" type="submit">Guardar</button>
-        </form>
-      </section>
-
-      <div class="overlay"></div>
-
       <footer class="footer">
-        <p class="footer__copyright">&#169; 2023 Around The U.S.</p>
+        <p class="footer__copyright">
+          &#169; 2024 Around The U.S. - Antonio Marmolejo
+        </p>
       </footer>
     </main>
     <script src="./scripts/scripts.js"></script>

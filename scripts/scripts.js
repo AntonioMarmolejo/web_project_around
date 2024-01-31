@@ -1,41 +1,69 @@
-//Se selecciona el bloque donde donde va la foto de perfil, el nombre, la actividad y el boton de editar perfil
-const botonPincelEditar = document.querySelector(".profile__editButton");
-const botonAgregarImagen = document.querySelector(".profile__addButton");
+//NUEVOS BOTONES PARA CONTROLAR LOS POPUP
+const buttonEdidProfile = document.querySelector(
+  ".buttons__item_index_profile"
+);
+const buttonAddCard = document.querySelector(".buttons__item_index_add-card");
+const buttonImagen = document.querySelector(".buttons__item_index_image");
 
-//Se selecciona el elemento de la X para cerrar el formulario
-const inconoCerrarFomulario = document.querySelector(".editForm__icono");
-const iconCerrarFormularioTarjetas = document.querySelector(".popup__icono");
+const popupProfile = document.querySelector(".popup__content_edit-profile");
+const userName = document.querySelector(".buttons__name");
+const userActiviti = document.querySelector(".buttons__explorer");
+const inputName = document.querySelector("#Nombre-usuario");
+const inputActiviti = document.querySelector("#Actividad");
 
-//Se selecciona el bloque donde está todo el formulario incluyendo el boton X de cerrar
-const todoElformulario = document.querySelector(".editForm");
-const formularioTarjetas = document.querySelector(".popup");
+const popupAddCard = document.querySelector(".popup__content_add-card");
+const inputAddCard = document.querySelector("#Nombre");
+const inputUrl = document.querySelector("#Enlace");
 
-//Se selecciona el bloque donde va el nombre del usuario
-const nombreUsuario = document.querySelector(".profile__intro_name");
+const popupImage = document.querySelector(".popup__content_image");
 
-//Se selecciona el bloque dode va la actividad que realiza la el usuario
-const actividadUsuario = document.querySelector(".profile__intro_explorer");
+//BOTONES EDITAR PERFIL, AGREGAR TARJETA Y MOSTRAR IMAGEN
+const buttonCloseProfile = popupProfile.querySelector(".popup__close-button");
+const buttonCloseAddCard = popupAddCard.querySelector(".popup__close-button");
+const buttonCloseImage = popupImage.querySelector(".popup__close-button");
 
-//Se selecciona el identificador del formulario que es el input donde el usuario ingresara su nombre
-const entradaNombre = document.querySelector("#primer-nombre");
-const entradaTitulo = document.querySelector("#titulo");
+//Botones CERRAR, ME GUSTA Y RECICLAJE
+const buttonSave = document.querySelector(".submit");
+const buttonLike = document.querySelector(".cards__element_itemImagen");
+const buttonRecycle = document.querySelector(".cards__element_trast");
 
-//Se selecciona el identificado del formulario que es el input donde el usuario ingresará su actividad
-const entradaActividad = document.querySelector("#actividad");
-const entradaEnlace = document.querySelector("#enlace_imagen");
-
-//Se selecciona el bloque que nos permite resaltar el formulario oscureciendo el fondo
-const overlayVentana = document.querySelector(".overlay");
-
-//Se selecciona el botón que guardará nuestros datos y pondrá los datos ingresado en los bloques correspondientes
-const botonGuadar = document.querySelector(".form__submi");
-const botonCrear = document.querySelector(".popup__submi");
-const botonDeMegusta = document.querySelector(".cards__element_itemImagen");
-const botonReciclaje = document.querySelector(".cards__element_trast");
-
+//Contenedor donde se almacenaran todas la tarjetas que se vayan creando
 const cardsArea = document.querySelector(".cards");
 
-const formAddCard = document.querySelector(".popup__form");
+//Función que nos Permite Mostrar o Cerrar las Ventanas Emergentes
+function togglePopup(popup) {
+  popup.classList.toggle("popup_show");
+}
+
+//Abrir formulario "Editar Perfil"
+buttonEdidProfile.addEventListener("click", (event) => {
+  togglePopup(popupProfile);
+});
+
+//Abrir Formulario "Nueva Tarjeta"
+buttonAddCard.addEventListener("click", (event) => {
+  togglePopup(popupAddCard);
+});
+
+//Abrir Imagen
+buttonImagen.addEventListener("click", (event) => {
+  togglePopup(popupImage);
+});
+
+//Cerrar Formulario "Nueva Tarjeta"
+buttonCloseAddCard.addEventListener("click", (event) => {
+  togglePopup(popupAddCard);
+});
+
+//Cerrar Formulario "Editar Perfil"
+buttonCloseProfile.addEventListener("click", (event) => {
+  togglePopup(popupProfile);
+});
+
+//Cerrar Imagen
+buttonCloseImage.addEventListener("click", (event) => {
+  togglePopup(popupImage);
+});
 
 const initialCards = [
   {
@@ -69,24 +97,6 @@ const initialCards = [
     alt: "Lago di Braies",
   },
 ];
-//Función para cerrar el formulario y desactivar el overlay para esclarecer la página
-//al darle click en el boton cerrar que aparece en el formulario
-function cerrarFormulario() {
-  todoElformulario.classList.toggle("show");
-  overlayVentana.style.display = "none";
-  todoElformulario.classList.add("hideform");
-  todoElformulario.style.display = "none";
-}
-inconoCerrarFomulario.addEventListener("click", cerrarFormulario);
-
-//Función para mostrar el formulario y activar el overlay para resaltar el formulario
-//al darle click en el boton de lapiz que se encuentra en el perfil de usuario
-function abrirFormulario() {
-  todoElformulario.style.display = "flex";
-  overlayVentana.style.display = "grid";
-  todoElformulario.classList.add("show");
-}
-botonPincelEditar.addEventListener("click", abrirFormulario);
 
 //Función para crear la 6 tarjetas principales que se cargaran por defecto
 function tarjetasPrincipales() {
@@ -96,44 +106,23 @@ function tarjetasPrincipales() {
   });
 }
 
-//Crear las tarjetas cuando se cargue la página
+//Carga las 6 Tarjetas principales al cargarse la página
 window.addEventListener("load", tarjetasPrincipales);
 
-//Función para almacenar los datos ingresados por el usuario y remplazarlos por
-//los que ya estan por defecto al momento de darle click al boton de guardar.
+//Función para editar el perfil del usuario, el nombre y la actividad
 function almacenarDatos(event) {
   event.preventDefault();
 
-  const nuevoUsuario = entradaNombre.value;
-  const nuevaActividad = entradaActividad.value;
+  const userNew = inputName.value;
+  const activitiNew = inputActiviti.value;
 
-  nombreUsuario.textContent = nuevoUsuario;
-  actividadUsuario.textContent = nuevaActividad;
-
-  todoElformulario.style.display = "none";
-  overlayVentana.style.display = "none";
+  userName.textContent = userNew;
+  userActiviti.textContent = activitiNew;
+  togglePopup(popupProfile);
 }
-botonGuadar.addEventListener("click", almacenarDatos);
-
-//MOSTRAR EL FOMULARIO PARA AGREGAR TARJETA
-function abrirAgregarImagen() {
-  formularioTarjetas.style.display = "flex";
-  overlayVentana.style.display = "grid";
-  formularioTarjetas.classList.add("show");
-}
-botonAgregarImagen.addEventListener("click", abrirAgregarImagen);
-
-//CERRAR EL FOMULARIO DE AGREGAR TARJETA
-function cerrarAgregarTarjetas() {
-  formularioTarjetas.classList.toggle("show");
-  overlayVentana.style.display = "none";
-  formularioTarjetas.classList.add("hidePopup");
-  formularioTarjetas.style.display = "none";
-}
-iconCerrarFormularioTarjetas.addEventListener("click", cerrarAgregarTarjetas);
+buttonSave.addEventListener("click", almacenarDatos);
 
 //AGREGAR LA NUEVA TARJETA QUE INGRESA EL USUARIO
-
 function agregarNuevaTarjeta(link, title) {
   //Seleccionamos el template donde vamos a crear la nueva tarjeta
   const newElement = document.querySelector("#newElement").content;
@@ -149,18 +138,21 @@ function agregarNuevaTarjeta(link, title) {
   //Agregamos el título de la nueva imagen
   userElement.querySelector(".cards__element_itemTitle").textContent = title;
 
+  //A la tarjeta creada se le da el Evento Click que activa el boton de me gusta si el usuario lo selecciona
   userElement
     .querySelector(".cards__element_itemImage")
     .addEventListener("click", function (event) {
       event.target.classList.toggle("cards__like_active");
     });
 
+  //A la tarjeta creada se le da el Evento click que nos permite eliminar la tarjeta seleccionada
   userElement
     .querySelector(".cards__element_trast")
     .addEventListener("click", function () {
       userElement.remove();
     });
 
+  //A la tarjeta creada se le da el evento click que nos permite mostrar la tarjeta en la pantalla una vez que el usuario la seleccione
   userElement
     .querySelector(".cards__element_image")
     .addEventListener("click", function () {
@@ -168,42 +160,29 @@ function agregarNuevaTarjeta(link, title) {
     });
   return userElement;
 }
-formAddCard.addEventListener("submit", function (event) {
+
+//Función que nos permite crear otra tarjeta tomando los datos ingresados en el formulario "Nueva Tarjeta"
+popupAddCard.addEventListener("submit", function (event) {
   event.preventDefault();
-  const link = entradaEnlace.value;
-  const title = entradaTitulo.value;
+  const link = inputUrl.value;
+  const title = inputAddCard.value;
   const nuevoNodo = agregarNuevaTarjeta(link, title);
 
-  //Se limpian las entradas para que el usuario no tenga que borrarlas
-  const limpiarEntradaTitulo = (document.querySelector(".popup__imput").value =
-    "");
-  const limpiarEntradaEnlace = (document.querySelector("#enlace_imagen").value =
-    "");
   cardsArea.prepend(nuevoNodo);
-  //Esta nueva tarjeta se agregará al principio del bloque cards
+  //Se limpian las entradas para que el usuario no tenga que borrarlas
+  const limpiarEntradaTitulo = (document.querySelector("#Nombre").value = "");
+  const limpiarEntradaEnlace = (document.querySelector("#Enlace").value = "");
 
   //luego cerrará el formulario suavemente
-  formularioTarjetas.classList.toggle("show");
-  overlayVentana.style.display = "none";
-  formularioTarjetas.classList.add("hidePopup");
-  formularioTarjetas.style.display = "none";
+  togglePopup(popupAddCard);
 });
 
+//Función que nos pemite mostrar al frente la imagen que seleccionemos, y la resaltará para poder verla con mas detalles, ademas mostrará el nombre de la misma en el pié.
 function mostrarImagenModal(src, alt) {
-  const modal = document.querySelector(".modal");
-  const modalImage = document.querySelector("#modalImage");
-  const modalClose = document.querySelector(".modal-close");
-  const nombreModal = document.querySelector(".nombreModal");
+  const modalImage = document.querySelector("#popup__image");
+  const nombreModal = document.querySelector(".popup__title");
 
   modalImage.src = src;
   nombreModal.textContent = alt;
-  modal.classList.add("show");
-  //Mustra la ventana amergente
-  modal.style.display = "grid";
-
-  modalClose.addEventListener("click", () => {
-    modal.classList.toggle("show");
-    modal.classList.add("hide");
-    modal.style.display = "none";
-  });
+  togglePopup(popupImage);
 }
