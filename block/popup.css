@@ -1,4 +1,33 @@
-/* .popup {
+/* @keyframes opacidadPopup {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes opacidad {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes opacidadReverso {
+  0% {
+    opacity: 1;
+    display: flex;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+
+.popup {
   position: fixed;
   width: 538px;
   height: auto;
@@ -248,8 +277,7 @@ input::-ms-input-placeholder {
     border-radius: 10px 10px 10px 10px;
     box-shadow: 0 5px 5px 1px rgba(27, 25, 25, 0.829);
   }
-}  */
-
+} */
 .popup {
   display: flex;
   flex-direction: column;
