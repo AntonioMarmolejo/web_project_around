@@ -3,7 +3,7 @@ const buttonEdidProfile = document.querySelector(
   ".buttons__item_index_profile"
 );
 const buttonAddCard = document.querySelector(".buttons__item_index_add-card");
-const buttonImagen = document.querySelector(".buttons__item_indexImage");
+const buttonImagen = document.querySelector(".buttons__modal");
 
 const popupProfile = document.querySelector(".popup__content_editProfile");
 const userName = document.querySelector(".buttons__name");
