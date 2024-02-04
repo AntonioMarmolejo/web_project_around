@@ -37,13 +37,13 @@ input::-ms-input-placeholder {
   left: 450px;
   top: 7px;
 }
-.popup__content_edit-profile {
+.popup__content_editProfile {
   z-index: 2;
 }
-.popup__content_add-card {
+.popup__content_addCard {
   z-index: 2;
 }
-.popup__content_image {
+.popup__content-image {
   z-index: 2;
 }
 

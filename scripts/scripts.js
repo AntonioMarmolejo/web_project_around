@@ -3,19 +3,19 @@ const buttonEdidProfile = document.querySelector(
   ".buttons__item_index_profile"
 );
 const buttonAddCard = document.querySelector(".buttons__item_index_add-card");
-const buttonImagen = document.querySelector(".buttons__item_index_image");
+const buttonImagen = document.querySelector(".buttons__item_indexImage");
 
-const popupProfile = document.querySelector(".popup__content_edit-profile");
+const popupProfile = document.querySelector(".popup__content_editProfile");
 const userName = document.querySelector(".buttons__name");
 const userActiviti = document.querySelector(".buttons__explorer");
 const inputName = document.querySelector("#Nombre-usuario");
 const inputActiviti = document.querySelector("#Actividad");
 
-const popupAddCard = document.querySelector(".popup__content_add-card");
+const popupAddCard = document.querySelector(".popup__content_addCard");
 const inputAddCard = document.querySelector("#Nombre");
 const inputUrl = document.querySelector("#Enlace");
 
-const popupImage = document.querySelector(".popup__content_image");
+const popupImage = document.querySelector(".popup__content-image");
 
 //BOTONES EDITAR PERFIL, AGREGAR TARJETA Y MOSTRAR IMAGEN
 const buttonCloseProfile = popupProfile.querySelector(".popup__close-button");
