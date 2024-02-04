@@ -37,7 +37,7 @@ input::-ms-input-placeholder {
   left: 450px;
   top: 7px;
 }
-.popup__editProfile {
+.popup__edit_Profile {
   z-index: 2;
 }
 .popup__content_addCard {
