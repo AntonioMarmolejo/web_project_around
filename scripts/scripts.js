@@ -11,11 +11,11 @@ const userActiviti = document.querySelector(".buttons__explorer");
 const inputName = document.querySelector("#Nombre-usuario");
 const inputActiviti = document.querySelector("#Actividad");
 
-const popupAddCard = document.querySelector(".popup__content_addCard");
+const popupAddCard = document.querySelector(".popup--content-addCard");
 const inputAddCard = document.querySelector("#Nombre");
 const inputUrl = document.querySelector("#Enlace");
 
-const popupImage = document.querySelector(".popup__content-image");
+const popupImage = document.querySelector(".popup--content-image");
 
 //BOTONES EDITAR PERFIL, AGREGAR TARJETA Y MOSTRAR IMAGEN
 const buttonCloseProfile = popupProfile.querySelector(".popup__close-button");

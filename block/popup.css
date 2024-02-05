@@ -40,10 +40,10 @@ input::-ms-input-placeholder {
 .popup--edit-Profile {
   z-index: 2;
 }
-.popup__content_addCard {
+.popup--content-addCard {
   z-index: 2;
 }
-.popup__content-image {
+.popup--content-image {
   z-index: 2;
 }
 
