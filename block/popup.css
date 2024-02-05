@@ -14,6 +14,7 @@
   pointer-events: none;
 
   transition: all ease 0.5s;
+  z-index: 2;
 }
 
 .popup_show {
@@ -37,9 +38,6 @@ input::-ms-input-placeholder {
   left: 450px;
   top: 7px;
 }
-.popup--edit-Profile {
-  z-index: 2;
-}
 .popup--content-addCard {
   z-index: 2;
 }
@@ -55,6 +53,9 @@ input::-ms-input-placeholder {
   opacity: 0.8;
   width: 100%;
   height: 100%;
+}
+.popup__content_edit-Profile {
+  z-index: 2;
 }
 .popup__content {
   width: 450px;

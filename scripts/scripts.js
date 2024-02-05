@@ -1,11 +1,13 @@
 //NUEVOS BOTONES PARA CONTROLAR LOS POPUP
+
+const popupForm = document.querySelector(".popup");
 const buttonEdidProfile = document.querySelector(
   ".buttons__item_index_profile"
 );
 const buttonAddCard = document.querySelector(".buttons__item_index_add-card");
 const buttonImagen = document.querySelector(".buttons__modal");
 
-const popupProfile = document.querySelector(".popup--edit-Profile");
+const popupProfile = popupForm.querySelector(".popup__content_edit-Profile");
 const userName = document.querySelector(".buttons__name");
 const userActiviti = document.querySelector(".buttons__explorer");
 const inputName = document.querySelector("#Nombre-usuario");
