@@ -5,7 +5,7 @@ const buttonEdidProfile = document.querySelector(
 const buttonAddCard = document.querySelector(".buttons__item_index_add-card");
 const buttonImagen = document.querySelector(".buttons__modal");
 
-const popupProfile = document.querySelector(".popup__edit_Profile");
+const popupProfile = document.querySelector(".popup--edit-Profile");
 const userName = document.querySelector(".buttons__name");
 const userActiviti = document.querySelector(".buttons__explorer");
 const inputName = document.querySelector("#Nombre-usuario");
