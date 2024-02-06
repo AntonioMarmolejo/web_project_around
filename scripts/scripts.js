@@ -7,17 +7,17 @@ const buttonEdidProfile = document.querySelector(
 const buttonAddCard = document.querySelector(".buttons__item_index_add-card");
 const buttonImagen = document.querySelector(".buttons__modal");
 
-const popupProfile = popupForm.querySelector(".popup__content_edit-Profile");
+const popupProfile = document.querySelector(".popup_edit-profile");
 const userName = document.querySelector(".buttons__name");
 const userActiviti = document.querySelector(".buttons__explorer");
 const inputName = document.querySelector("#Nombre-usuario");
 const inputActiviti = document.querySelector("#Actividad");
 
-const popupAddCard = document.querySelector(".popup--content-addCard");
+const popupAddCard = document.querySelector(".popup_content-addcard");
 const inputAddCard = document.querySelector("#Nombre");
 const inputUrl = document.querySelector("#Enlace");
 
-const popupImage = document.querySelector(".popup--content-image");
+const popupImage = document.querySelector(".popup_content-image");
 
 //BOTONES EDITAR PERFIL, AGREGAR TARJETA Y MOSTRAR IMAGEN
 const buttonCloseProfile = popupProfile.querySelector(".popup__close-button");
