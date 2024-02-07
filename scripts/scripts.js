@@ -26,7 +26,7 @@ const buttonCloseImage = popupImage.querySelector(".popup__close-button");
 
 //Botones CERRAR, ME GUSTA Y RECICLAJE
 const buttonSave = document.querySelector(".submit");
-const buttonLike = document.querySelector(".cards__element_itemImagen");
+const buttonLike = document.querySelector(".cards__element_item-imagen");
 const buttonRecycle = document.querySelector(".cards__element_trast");
 
 //Contenedor donde se almacenaran todas la tarjetas que se vayan creando
