@@ -5,7 +5,7 @@ const buttonEdidProfile = document.querySelector(
   ".buttons__item_index_profile"
 );
 const buttonAddCard = document.querySelector(".buttons__item_index_add-card");
-const buttonImagen = document.querySelector(".buttons__modal");
+const buttonImage = document.querySelector(".buttons__modal");
 
 const popupProfile = document.querySelector(".popup_edit-profile");
 const userName = document.querySelector(".buttons__name");
@@ -48,7 +48,7 @@ buttonAddCard.addEventListener("click", (event) => {
 });
 
 //Abrir Imagen
-buttonImagen.addEventListener("click", (event) => {
+buttonImage.addEventListener("click", (event) => {
   togglePopup(popupImage);
 });
 
@@ -101,18 +101,18 @@ const initialCards = [
 ];
 
 //Función para crear la 6 tarjetas principales que se cargaran por defecto
-function tarjetasPrincipales() {
+function createMainCards() {
   initialCards.forEach((item) => {
-    const nuevoNodo = agregarNuevaTarjeta(item.link, item.name);
+    const nuevoNodo = createNewCard(item.link, item.name);
     cardsArea.append(nuevoNodo);
   });
 }
 
 //Carga las 6 Tarjetas principales al cargarse la página
-window.addEventListener("load", tarjetasPrincipales);
+window.addEventListener("load", createMainCards);
 
 //Función para editar el perfil del usuario, el nombre y la actividad
-function almacenarDatos(event) {
+function storeData(event) {
   event.preventDefault();
 
   const userNew = inputName.value;
@@ -122,10 +122,10 @@ function almacenarDatos(event) {
   userActiviti.textContent = activitiNew;
   togglePopup(popupProfile);
 }
-buttonSave.addEventListener("click", almacenarDatos);
+buttonSave.addEventListener("click", storeData);
 
 //AGREGAR LA NUEVA TARJETA QUE INGRESA EL USUARIO
-function agregarNuevaTarjeta(link, title) {
+function createNewCard(link, title) {
   //Seleccionamos el template donde vamos a crear la nueva tarjeta
   const newElement = document.querySelector("#newElement").content;
 
@@ -158,7 +158,7 @@ function agregarNuevaTarjeta(link, title) {
   userElement
     .querySelector(".cards__element_image")
     .addEventListener("click", function () {
-      mostrarImagenModal(link, title);
+      showImage(link, title);
     });
   return userElement;
 }
@@ -168,7 +168,7 @@ popupAddCard.addEventListener("submit", function (event) {
   event.preventDefault();
   const link = inputUrl.value;
   const title = inputAddCard.value;
-  const nuevoNodo = agregarNuevaTarjeta(link, title);
+  const nuevoNodo = createNewCard(link, title);
 
   cardsArea.prepend(nuevoNodo);
   //Se limpian las entradas para que el usuario no tenga que borrarlas
@@ -180,7 +180,7 @@ popupAddCard.addEventListener("submit", function (event) {
 });
 
 //Función que nos pemite mostrar al frente la imagen que seleccionemos, y la resaltará para poder verla con mas detalles, ademas mostrará el nombre de la misma en el pié.
-function mostrarImagenModal(src, alt) {
+function showImage(src, alt) {
   const modalImage = document.querySelector("#popup__image");
   const nombreModal = document.querySelector(".popup__title");
 
