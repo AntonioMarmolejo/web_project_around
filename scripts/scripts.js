@@ -136,6 +136,7 @@ function createNewCard(link, title) {
 
   //Agregamos el enlace de la nueva imagen
   userElement.querySelector(".cards__element_image").src = link;
+  userElement.querySelector(".cards__element_image").alt = title;
 
   //Agregamos el título de la nueva imagen
   userElement.querySelector(".cards__element_itemTitle").textContent = title;
@@ -185,6 +186,7 @@ function showImage(src, alt) {
   const nombreModal = document.querySelector(".popup__title");
 
   modalImage.src = src;
+  modalImage.alt = alt;
   nombreModal.textContent = alt;
   togglePopup(popupImage);
 }

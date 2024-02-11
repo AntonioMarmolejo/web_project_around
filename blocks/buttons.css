@@ -53,6 +53,9 @@
   font-size: 18px;
   line-height: 21.78px;
   font-weight: 400;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .buttons__item_index_profile {
   display: flex;
