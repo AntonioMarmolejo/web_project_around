@@ -8,10 +8,10 @@ root = true
 indent_style = space
 # Tamaño de la sangría en caracteres a un solo espacio
 # Valores posibles: un número entero, tabulación
-indent_size = 2
+indent_size = 4
 # Carácter de final de línea
 # Possible values - lf, crlf, cr
-end_of_line = lf
+end_of_line = crlf
 # Codificación de caracteres del archivo
 # Possible values - latin1, utf-8, utf-16be, utf-16le
 charset = utf-8
@@ -23,4 +23,4 @@ trim_trailing_whitespace = true
 trim_trailing_whitespace = false
 # Indica si el archivo debe terminar con una nueva línea
 # Possible values - true, false
-insert_final_newline = true
+insert_final_newline = false
