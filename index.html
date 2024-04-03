@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
+<!DOCTYPE html><html lang="es">
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -71,7 +70,7 @@
                             <input
                                 type="text"
                                 class="form__input"
-                                id="Nombre-usuario"
+                                id="name-input"
                                 name="name"
                                 placeholder="Nuevo usuario"
                                 value=""
@@ -80,7 +79,7 @@
                                 required
                             />
                             <span
-                                class="form__error form__error_type_name"
+                                class="form__error name-input_type-error"
                             ></span>
                         </label>
 
@@ -88,7 +87,7 @@
                             ><input
                                 type="text"
                                 class="form__input"
-                                id="Actividad"
+                                id="activity-input"
                                 name="activity"
                                 placeholder="Actividad"
                                 value=""
@@ -96,11 +95,15 @@
                                 maxlength="200"
                                 required />
                             <span
-                                class="form__error form__error_type_activity"
+                                class="form__error activity-input_type-error"
                             ></span
                         ></label>
 
-                        <input type="submit" class="submit" value="Guardar" />
+                        <input
+                            type="submit"
+                            class="form__submit"
+                            value="Guardar"
+                        />
                     </form>
                 </div>
             </div>
@@ -119,7 +122,7 @@
                             ><input
                                 type="text"
                                 class="form__input"
-                                id="Nombre"
+                                id="place-input"
                                 name="newplace"
                                 placeholder="Nombre del Lugar"
                                 value=""
@@ -127,7 +130,7 @@
                                 maxlength="30"
                                 required />
                             <span
-                                class="form__error form__error_type_newplace"
+                                class="form__error place-input_type_error"
                             ></span
                         ></label>
 
@@ -135,17 +138,21 @@
                             ><input
                                 type="url"
                                 class="form__input"
-                                id="Enlace"
+                                id="url-input"
                                 name="enlace"
                                 placeholder="Url de la imagen"
                                 value=""
                                 required />
                             <span
-                                class="form__error form__error_type_enlace"
+                                class="form__error url-input_type_error"
                             ></span
                         ></label>
 
-                        <input type="submit" class="submit" value="Crear" />
+                        <input
+                            type="submit"
+                            class="form__submit"
+                            value="Crear"
+                        />
                     </form>
                 </div>
             </div>
@@ -199,5 +206,6 @@
             </footer>
         </main>
         <script src="./scripts/scripts.js"></script>
+        <script src="./scripts/validate.js"></script>
     </body>
 </html>

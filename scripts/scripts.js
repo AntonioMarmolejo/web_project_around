@@ -4,18 +4,19 @@ const popupForm = document.querySelector(".popup");
 const buttonEdidProfile = document.querySelector(
     ".buttons__item_index_profile"
 );
+// const allForms = document.querySelectorAll(".form");
 const buttonAddCard = document.querySelector(".buttons__item_index_add-card");
 const buttonImage = document.querySelector(".buttons__modal");
 
 const popupProfile = document.querySelector(".popup_edit-profile");
 const userName = document.querySelector(".buttons__name");
 const userActivity = document.querySelector(".buttons__explorer");
-const inputName = document.querySelector("#Nombre-usuario");
-const inputActivity = document.querySelector("#Actividad");
+const inputName = document.querySelector("#name-input");
+const inputActivity = document.querySelector("#activity-input");
 
 const popupAddCard = document.querySelector(".popup_content-addcard");
-const inputAddCard = document.querySelector("#Nombre");
-const inputUrl = document.querySelector("#Enlace");
+const inputAddCard = document.querySelector("#place-input");
+const inputUrl = document.querySelector("#url-input");
 
 const popupImage = document.querySelector(".popup_content-image");
 
@@ -25,7 +26,7 @@ const buttonCloseAddCard = popupAddCard.querySelector(".popup__close-button");
 const buttonCloseImage = popupImage.querySelector(".popup__close-button");
 
 //Botones CERRAR, ME GUSTA Y RECICLAJE
-const buttonSave = document.querySelector(".submit");
+const buttonSave = document.querySelector(".form__submit");
 const buttonLike = document.querySelector(".cards__element_item-imagen");
 const buttonRecycle = document.querySelector(".cards__element_trast");
 
@@ -55,11 +56,13 @@ buttonImage.addEventListener("click", (event) => {
 //Cerrar Formulario "Nueva Tarjeta"
 buttonCloseAddCard.addEventListener("click", (event) => {
     togglePopup(popupAddCard);
+    resetForms(allForms);
 });
 
 //Cerrar Formulario "Editar Perfil"
 buttonCloseProfile.addEventListener("click", (event) => {
     togglePopup(popupProfile);
+    resetForms(allForms);
 });
 
 //Cerrar Imagen
@@ -121,6 +124,7 @@ function storeData(event) {
     userName.textContent = userNew;
     userActivity.textContent = activitiNew;
     togglePopup(popupProfile);
+    resetForms(allForms);
 }
 buttonSave.addEventListener("click", storeData);
 
@@ -175,12 +179,15 @@ popupAddCard.addEventListener("submit", function (event) {
     const nuevoNodo = createNewCard(link, title);
 
     cardsArea.prepend(nuevoNodo);
-    //Se limpian las entradas para que el usuario no tenga que borrarlas
-    const limpiarEntradaTitulo = (document.querySelector("#Nombre").value = "");
-    const limpiarEntradaEnlace = (document.querySelector("#Enlace").value = "");
+    // Se limpian las entradas para que el usuario no tenga que borrarlas
+    // const limpiarEntradaTitulo = (document.querySelector("#place-input").value =
+    //     "");
+    // const limpiarEntradaEnlace = (document.querySelector("#url-input").value =
+    //     "");
 
     //luego cerrará el formulario suavemente
     togglePopup(popupAddCard);
+    resetForms(allForms);
 });
 
 //Función que nos pemite mostrar al frente la imagen que seleccionemos, y la resaltará para poder verla con mas detalles, ademas mostrará el nombre de la misma en el pié.
@@ -194,67 +201,9 @@ function showImage(src, alt) {
     togglePopup(popupImage);
 }
 
-const allForms = document.querySelectorAll(".form");
-const formImputs = document.querySelectorAll(".form__input");
-formImputs.forEach((inputElement) => {
-    inputElement.addEventListener("input", (event) => {
-        const errorNode = inputElement
-            .closest(".form")
-            .querySelector(`.form__error_type_${inputElement.name}`);
-        if (!inputElement.validity.valid) {
-            inputElement.classList.add("form__input_has-error");
-            errorNode.textContent = inputElement.validationMessage;
-        } else {
-            inputElement.classList.remove("form__input_has-error");
-            errorNode.textContent = "";
-        }
-        buttonSave.disable = !isValid(formImputs);
+//función que nos permite resetear los formularios
+const resetForms = (forms) => {
+    forms.forEach((form) => {
+        form.reset();
     });
-});
-
-buttonSave.disable = !isValid(formImputs);
-
-function isValid(formInput) {
-    return formImputs.every((item) => {
-        return item.validity.valid;
-    });
-}
-
-//FORMA DE HACER MOSTRAR EL MENSAJE DE ERROR DE ACUERDO A LA TEORÍA DE CURSO
-// //función para mostrar el mensaje de error cuando el usuario se equivoque
-// const showInputError = (formElement, inputElement, errorMessage) => {
-//     const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
-//     inputElement.classList.add("form__input_type_error");
-//     errorElement.textContent = errorMessage;
-//     errorElement.classList.add("form__input-error_active");
-// };
-
-// //función para ocultar el mensaje de erro cuando el usuario ponga todos los datos requeridos
-// const hideInputError = (formElement, inputElement) => {
-//     const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
-//     inputElement.classList.remove("form__input_type_error");
-//     errorElement.classList.remove("form__input-error_active");
-//     errorElement.textContent = "";
-// };
-
-// const checkInputValidity = (formElement, inputElement) => {
-//     if (!inputElement.validity.valid) {
-//         showInputError(
-//             formElement,
-//             inputElement,
-//             inputElement.validationMessage
-//         );
-//     } else {
-//         hideInputError(formElement, inputElement);
-//     }
-// };
-
-// allForms.addEventListener("submit", function (evt) {
-//     evt.preventDefault();
-// });
-
-// formImputs.addEventListener("input", function () {
-//     checkInputValidity(allForms, formImputs);
-// });
-
-// checkInputValidity(allForms, formImputs);
+};

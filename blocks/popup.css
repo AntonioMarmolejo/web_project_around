@@ -102,8 +102,13 @@ input::-ms-input-placeholder {
 .form__input:invalid {
     border-bottom: 2px solid red;
 }
+.form__input:valid {
+    border-bottom: 2px solid green;
+}
 
 .form__error {
+    color: red;
+    font-size: 10px;
 }
 .form__input-error {
     font-size: 12px;
@@ -115,24 +120,32 @@ input::-ms-input-placeholder {
     transition: 0.3s;
 }
 
-.form__error_type_name {
+.form__input-error_active {
+    opacity: 1;
+}
+.form__input_type_error {
+    border-bottom-color: red;
+}
+
+.name-input_type-error {
     color: red;
     font-size: 10px;
 }
-.form__error_type_activity {
+.activity-input_type-error {
     color: red;
     font-size: 10px;
 }
-.form__error_type_newplace {
-    color: red;
-    font-size: 10px;
-}
-.form__error_type_enlace {
+.place-input_type-error {
     color: red;
     font-size: 10px;
 }
 
-.submit {
+.url-input_type-error {
+    color: red;
+    font-size: 10px;
+}
+
+.form__submit {
     margin-top: 18.26px;
     height: 50px;
     background-color: black;
@@ -144,10 +157,24 @@ input::-ms-input-placeholder {
     font-family: "Inter-Regular", sans-serif;
 }
 
-.submit:hover {
+.form__submit:hover {
     background-color: rgba(0, 0, 0, 0.827);
     transition: 0.5s ease;
     transform: scale(1.03, 1.03);
+}
+
+.form__submit:disabled {
+    background-color: rgb(255, 255, 255);
+}
+
+.button_inactive {
+    color: #b8b8b8;
+    background: #ededed;
+    pointer-events: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .popup__close-buttons {
@@ -235,7 +262,7 @@ input::-ms-input-placeholder {
         height: 27px;
     }
 
-    .submit {
+    .form__submit {
         margin-top: 10px;
         width: 100%;
         height: 60px;
@@ -315,7 +342,7 @@ input::-ms-input-placeholder {
         height: 27px;
     }
 
-    .submit {
+    .form__submit {
         margin-top: 10px;
         width: 100%;
         height: 60px;
@@ -393,7 +420,7 @@ input::-ms-input-placeholder {
         height: 27px;
     }
 
-    .submit {
+    .form__submit {
         margin-top: 10px;
         width: 100%;
         height: 60px;
