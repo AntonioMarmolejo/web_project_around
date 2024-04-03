@@ -98,6 +98,12 @@ input::-ms-input-placeholder {
     width: 100%;
     border-radius: 5px;
 }
+.form__input:invalid {
+    border-bottom: 2px solid red;
+}
+.form__input:valid {
+    border-bottom: 2px solid green;
+}
 
 .form__error {
     color: red;
