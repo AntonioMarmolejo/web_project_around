@@ -1,5 +1,4 @@
-.popup {
-    display: flex;
+.popup {    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -98,12 +97,6 @@ input::-ms-input-placeholder {
     font-family: "Inter-Regular", sans-serif;
     width: 100%;
     border-radius: 5px;
-}
-.form__input:invalid {
-    border-bottom: 2px solid red;
-}
-.form__input:valid {
-    border-bottom: 2px solid green;
 }
 
 .form__error {
