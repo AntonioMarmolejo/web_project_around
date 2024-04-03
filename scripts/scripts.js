@@ -13,6 +13,7 @@ const userName = document.querySelector(".buttons__name");
 const userActivity = document.querySelector(".buttons__explorer");
 const inputName = document.querySelector("#name-input");
 const inputActivity = document.querySelector("#activity-input");
+const allOverlay = document.querySelectorAll(".popup__overlay");
 
 const popupAddCard = document.querySelector(".popup_content-addcard");
 const inputAddCard = document.querySelector("#place-input");
@@ -179,14 +180,9 @@ popupAddCard.addEventListener("submit", function (event) {
     const nuevoNodo = createNewCard(link, title);
 
     cardsArea.prepend(nuevoNodo);
-    // Se limpian las entradas para que el usuario no tenga que borrarlas
-    // const limpiarEntradaTitulo = (document.querySelector("#place-input").value =
-    //     "");
-    // const limpiarEntradaEnlace = (document.querySelector("#url-input").value =
-    //     "");
+    togglePopup(popupAddCard);
 
     //luego cerrará el formulario suavemente
-    togglePopup(popupAddCard);
     resetForms(allForms);
 });
 
@@ -207,3 +203,25 @@ const resetForms = (forms) => {
         form.reset();
     });
 };
+
+//Esta función revisa si hay alguna ventana del documento con la clase popup_show y si la hay procede a cerrar y a restablecer todos los foumlarios
+allOverlay.forEach((item) => {
+    item.addEventListener("click", function () {
+        const openPopup = document.querySelector(".popup_show");
+        if (openPopup) {
+            togglePopup(openPopup);
+            resetForms(allForms);
+        }
+    });
+});
+
+//Esta función me permite cerrar la ventana emergente que se encuentre abierta precionando la tecla Escape
+document.addEventListener("keydown", function (evt) {
+    if (evt.key === "Escape") {
+        const openPopup = document.querySelector(".popup_show");
+        if (openPopup) {
+            togglePopup(openPopup);
+            resetForms(allForms);
+        }
+    }
+});
