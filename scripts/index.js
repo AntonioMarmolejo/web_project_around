@@ -11,7 +11,7 @@ const buttonImage = document.querySelector(".buttons__modal");
 const popupProfile = document.querySelector(".popup_edit-profile");
 const userName = document.querySelector(".buttons__name");
 const userActivity = document.querySelector(".buttons__explorer");
-const inputName = document.querySelector("#name-input");
+const inputName = document.querySelector("#user-name");
 const inputActivity = document.querySelector("#activity-input");
 const allOverlay = document.querySelectorAll(".popup__overlay");
 
@@ -129,7 +129,7 @@ function storeData(event) {
 }
 buttonSave.addEventListener("click", storeData);
 
-//AGREGAR LA NUEVA TARJETA QUE INGRESA EL USUARIO
+//Utiliza la plantilla colocada en html para crear la nueva tarjeta ingresada por el usuario
 function createNewCard(link, title) {
     //Seleccionamos el template donde vamos a crear la nueva tarjeta
     const newElement = document.querySelector("#newElement").content;
@@ -200,6 +200,13 @@ function showImage(src, alt) {
 //función que nos permite resetear los formularios
 const resetForms = (forms) => {
     forms.forEach((form) => {
+        // const todosInpu = Array.from(form.querySelectorAll(".form__input"));
+        // todosInpu.forEach((inputItem) => {
+        //     inputItem.classList.remove("form__input_type_error");
+        //     inputItem.classList.remove("form__input-error_active");
+        // });
+        // console.log(todosInpu);
+
         form.reset();
     });
 };

@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="es">
+<!DOCTYPE html>
+<html lang="es">
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -64,12 +65,12 @@
                     </div>
 
                     <form class="form" novalidate>
-                        <label class="form__label" for="Nombre-usuario">
-                            <h2 class="form__title">Editar perfil</h2>
+                        <h2 class="form__title">Editar perfil</h2>
+                        <label class="form__label" for="user-name">
                             <input
                                 type="text"
                                 class="form__input"
-                                id="name-input"
+                                id="user-name"
                                 name="name"
                                 placeholder="Nuevo usuario"
                                 value=""
@@ -78,11 +79,11 @@
                                 required
                             />
                             <span
-                                class="form__error name-input_type-error"
+                                class="form__error user-name__type-error"
                             ></span>
                         </label>
 
-                        <label class="form__label" for="Actividad"
+                        <label class="form__label" for="activity-input"
                             ><input
                                 type="text"
                                 class="form__input"
@@ -94,7 +95,7 @@
                                 maxlength="200"
                                 required />
                             <span
-                                class="form__error activity-input_type-error"
+                                class="form__error activity-input__type-error"
                             ></span
                         ></label>
 
@@ -115,8 +116,8 @@
                     </div>
 
                     <form class="form" novalidate>
-                        <label class="form__label" for="Nombre"
-                            ><h2 class="form__title">Nuvo Lugar</h2>
+                        <h2 class="form__title">Nuvo Lugar</h2>
+                        <label class="form__label" for="newplace">
                             <input
                                 type="text"
                                 class="form__input"
@@ -127,12 +128,11 @@
                                 minlength="2"
                                 maxlength="30"
                                 required />
-                            <span
-                                class="form__error place-input_type_error"
-                            ></span
+                            <span class="form__error place-input__type_error">
+                            </span
                         ></label>
 
-                        <label class="form__label" for="Enlace"
+                        <label class="form__label" for="url-input"
                             ><input
                                 type="url"
                                 class="form__input"
@@ -142,7 +142,7 @@
                                 value=""
                                 required />
                             <span
-                                class="form__error url-input_type_error"
+                                class="form__error url-input__type_error"
                             ></span
                         ></label>
 

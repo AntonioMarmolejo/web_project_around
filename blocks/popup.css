@@ -1,4 +1,5 @@
-.popup {    display: flex;
+.popup {
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -126,20 +127,20 @@ input::-ms-input-placeholder {
     border-bottom-color: red;
 }
 
-.name-input_type-error {
+.user-name__type-error {
     color: red;
     font-size: 10px;
 }
-.activity-input_type-error {
+.activity-input__type-error {
     color: red;
     font-size: 10px;
 }
-.place-input_type-error {
+.place-input__type_error {
     color: red;
     font-size: 10px;
 }
 
-.url-input_type-error {
+.url-input__type_error {
     color: red;
     font-size: 10px;
 }

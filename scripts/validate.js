@@ -31,6 +31,7 @@ const hasInvalidInput = (inputList) => {
     });
 };
 
+//Esta función nos verifica si alguno de los campos es válido y dependiendo de esto activa o desactiva el boton guardar
 const toggleButtonState = (inputList, buttonElement) => {
     if (hasInvalidInput(inputList)) {
         buttonElement.classList.add("button_inactive");
@@ -39,6 +40,7 @@ const toggleButtonState = (inputList, buttonElement) => {
     }
 };
 
+//Esta función crea una lista de todos los inpus y de todos los botones. Luego itera sobre estos campos llamando a las funciones anteriores
 const setEventListeners = (formElement) => {
     const inputList = Array.from(formElement.querySelectorAll(".form__input"));
     const buttonElement = formElement.querySelector(".form__submit");
@@ -53,6 +55,7 @@ const setEventListeners = (formElement) => {
     });
 };
 
+//Es función llama a la anterior
 const enableValidation = () => {
     allForms.forEach((formElement) => {
         formElement.addEventListener("submit", function (evt) {
