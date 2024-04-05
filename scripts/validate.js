@@ -56,7 +56,7 @@ const setEventListeners = (formElement) => {
     });
 };
 
-//Es función llama a la anterior
+//Esta función llama a la anterior
 const enableValidation = () => {
     allForms.forEach((formElement) => {
         formElement.addEventListener("submit", function (evt) {
