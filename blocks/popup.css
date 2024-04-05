@@ -127,20 +127,7 @@ input::-ms-input-placeholder {
     border-bottom-color: red;
 }
 
-.user-name__type-error {
-    color: red;
-    font-size: 10px;
-}
-.activity-input__type-error {
-    color: red;
-    font-size: 10px;
-}
-.place-input__type_error {
-    color: red;
-    font-size: 10px;
-}
-
-.url-input__type_error {
+.form__error_type {
     color: red;
     font-size: 10px;
 }

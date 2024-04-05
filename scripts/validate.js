@@ -1,4 +1,5 @@
-const allForms = document.querySelectorAll(".form");const showInputError = (inputElement, errorMessage) => {
+const allForms = document.querySelectorAll(".form");
+const showInputError = (inputElement, errorMessage) => {
     const errorElement =
         inputElement.parentElement.querySelector(`.form__error`);
     inputElement.classList.add("form__input_type_error");

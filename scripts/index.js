@@ -35,7 +35,10 @@ const buttonRecycle = document.querySelector(".cards__element_trast");
 const cardsArea = document.querySelector(".cards");
 
 //Función que nos Permite Mostrar o Cerrar las Ventanas Emergentes
-function togglePopup(popup) {
+function togglePopup(popup, closing = false) {
+    if (closing) {
+        resetForms(popup.querySelectorAll(".form"), true); //Restablecer los formularios sin eliminar clases de error
+    }
     popup.classList.toggle("popup_show");
 }
 
@@ -54,16 +57,14 @@ buttonImage.addEventListener("click", (event) => {
     togglePopup(popupImage);
 });
 
-//Cerrar Formulario "Nueva Tarjeta"
+// Cerrar Formulario "Nueva Tarjeta"
 buttonCloseAddCard.addEventListener("click", (event) => {
-    togglePopup(popupAddCard);
-    resetForms(allForms);
+    togglePopup(popupAddCard, true);
 });
 
-//Cerrar Formulario "Editar Perfil"
+// Cerrar Formulario "Editar Perfil"
 buttonCloseProfile.addEventListener("click", (event) => {
-    togglePopup(popupProfile);
-    resetForms(allForms);
+    togglePopup(popupProfile, true);
 });
 
 //Cerrar Imagen
@@ -180,7 +181,7 @@ popupAddCard.addEventListener("submit", function (event) {
     const nuevoNodo = createNewCard(link, title);
 
     cardsArea.prepend(nuevoNodo);
-    togglePopup(popupAddCard);
+    togglePopup(popupAddCard, true);
 
     //luego cerrará el formulario suavemente
     resetForms(allForms);
@@ -197,26 +198,26 @@ function showImage(src, alt) {
     togglePopup(popupImage);
 }
 
-//función que nos permite resetear los formularios
-const resetForms = (forms) => {
+// Función que nos permite resetear los formularios y también
+function resetForms(forms, keepErrorClasses = false) {
     forms.forEach((form) => {
-        // const todosInpu = Array.from(form.querySelectorAll(".form__input"));
-        // todosInpu.forEach((inputItem) => {
-        //     inputItem.classList.remove("form__input_type_error");
-        //     inputItem.classList.remove("form__input-error_active");
-        // });
-        // console.log(todosInpu);
-
+        // Resetea cada entrada de los formularios para eliminar los datos que quedan
         form.reset();
+        if (!keepErrorClasses) {
+            form.querySelectorAll(".form__input").forEach((input) => {
+                input.classList.remove("invalid", "valid");
+                input.nextElementSibling.textContent = "";
+            });
+        }
     });
-};
+}
 
 //Esta función revisa si hay alguna ventana del documento con la clase popup_show y si la hay procede a cerrar y a restablecer todos los foumlarios
 allOverlay.forEach((item) => {
     item.addEventListener("click", function () {
         const openPopup = document.querySelector(".popup_show");
         if (openPopup) {
-            togglePopup(openPopup);
+            togglePopup(openPopup, true);
             resetForms(allForms);
         }
     });
