@@ -63,11 +63,11 @@ El propósito principal de este proyecto es fortalecer el conocimiento en JavaSc
 
 22. Luego hemos creado la función _checkInputValidity()_ la cual va a validar cada uno de los campos de entrada si la propiedad valid de ese capo es _false_ entonces esta función llamará a la funcion _showInputError()_ pra mostrar el mensaje de error y si es _true_ entonces esta función llamará a la función _hideInputError()_ para ocultarlos.
 
-23 Se ha creado la función _hasInvalidInput()_ la cual va a iterar entre varios campos de un formulario y ver si al menos uno de ellos es inválido si al menos uno de ellos e inválido devolverá _true_ esta función la vamos a llamar desde la función _toggleButtonState()_ la cual desactiva o activa los botones de guardar dependiendo de si los campos de entrada están validados todos o al menos uno no está validado.
+23. Se ha creado la función _hasInvalidInput()_ la cual va a iterar entre varios campos de un formulario y ver si al menos uno de ellos es inválido si al menos uno de ellos e inválido devolverá _true_ esta función la vamos a llamar desde la función _toggleButtonState()_ la cual desactiva o activa los botones de guardar dependiendo de si los campos de entrada están validados todos o al menos uno no está validado.
 
-23. Desde la función _setEventListeners()_ se llama a las tres funciones *toggleButtonState(), checkInputValidity()* Esta función crea una lista de todos los inpus y de todos los botones. Luego itera sobre estos campos llamando a las funciones anteriores
+24. Desde la función _setEventListeners()_ se llama a las tres funciones _toggleButtonState(), checkInputValidity()_ Esta función crea una lista de todos los inpus y de todos los botones. Luego itera sobre estos campos llamando a las funciones anteriores
 
-24. Luego creamos a la última función *enableValidation()* la cual llama a *setEventListeners()* con todas las demas funciones que vienen incluidas. Esto nos permite crear una experiencia de usuario agradable e interactiva.
+25. Luego creamos a la última función _enableValidation()_ la cual llama a _setEventListeners()_ con todas las demas funciones que vienen incluidas. Esto nos permite crear una experiencia de usuario agradable e interactiva.
 
 ## ENLACES
 
