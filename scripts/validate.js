@@ -1,5 +1,3 @@
-const a = document.querySelectorAll(".form");const b = document.forms;
-
 const allForms = document.querySelectorAll(".form");
 const showInputError = (inputElement, errorMessage) => {
     const errorElement =
