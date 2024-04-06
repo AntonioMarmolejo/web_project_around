@@ -14,6 +14,7 @@ const userActivity = document.querySelector(".buttons__explorer");
 const inputName = document.querySelector("#user-name");
 const inputActivity = document.querySelector("#activity-input");
 const allOverlay = document.querySelectorAll(".popup__overlay");
+const allInput = document.querySelectorAll(".form__error");
 
 const popupAddCard = document.querySelector(".popup_content-addcard");
 const inputAddCard = document.querySelector("#place-input");
@@ -35,10 +36,7 @@ const buttonRecycle = document.querySelector(".cards__element_trast");
 const cardsArea = document.querySelector(".cards");
 
 //Función que nos Permite Mostrar o Cerrar las Ventanas Emergentes
-function togglePopup(popup, closing = false) {
-    if (closing) {
-        resetForms(popup.querySelectorAll(".form"), true); //Restablecer los formularios sin eliminar clases de error
-    }
+function togglePopup(popup) {
     popup.classList.toggle("popup_show");
 }
 
@@ -59,17 +57,20 @@ buttonImage.addEventListener("click", (event) => {
 
 // Cerrar Formulario "Nueva Tarjeta"
 buttonCloseAddCard.addEventListener("click", (event) => {
-    togglePopup(popupAddCard, true);
+    togglePopup(popupAddCard);
+    resetForms(allForms);
 });
 
 // Cerrar Formulario "Editar Perfil"
 buttonCloseProfile.addEventListener("click", (event) => {
-    togglePopup(popupProfile, true);
+    togglePopup(popupProfile);
+    resetForms(allForms);
 });
 
 //Cerrar Imagen
 buttonCloseImage.addEventListener("click", (event) => {
     togglePopup(popupImage);
+    resetForms(allForms);
 });
 
 const initialCards = [
@@ -199,16 +200,11 @@ function showImage(src, alt) {
 }
 
 // Función que nos permite resetear los formularios y también
-function resetForms(forms, keepErrorClasses = false) {
+function resetForms(forms) {
     forms.forEach((form) => {
         // Resetea cada entrada de los formularios para eliminar los datos que quedan
         form.reset();
-        if (!keepErrorClasses) {
-            form.querySelectorAll(".form__input").forEach((input) => {
-                input.classList.remove("invalid", "valid");
-                input.nextElementSibling.textContent = "";
-            });
-        }
+        form.querySelector(".form__submit").classList.add("button_inactive");
     });
 }
 
