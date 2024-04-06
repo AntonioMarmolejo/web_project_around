@@ -71,7 +71,7 @@ El propósito principal de este proyecto es fortalecer el conocimiento en JavaSc
 
 ## ENLACES
 
-[VISITA EL SITIO] ("DE PATRIA A PATRIA" https://antoniomarmolejo.github.io/web_project_around/)
+[VISITA EL SITIO] ("Around The US" https://antoniomarmolejo.github.io/web_project_around/)
 
 [TRIPLETEN] ("Tripleten" https://tripleten.com/es-ecu/)
 
