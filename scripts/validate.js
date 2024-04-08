@@ -1,7 +1,6 @@
 const allForms = document.querySelectorAll(".form");
 const showInputError = (inputElement, errorMessage) => {
-    const errorElement =
-        inputElement.parentElement.querySelector(`.form__error`);
+    const errorElement = inputElement.parentElement.querySelector(`.form__error`);
     inputElement.classList.add("form__input_type_error");
     errorElement.textContent = errorMessage;
     errorElement.classList.add("form__input-error_active");
@@ -9,8 +8,7 @@ const showInputError = (inputElement, errorMessage) => {
 
 // Función para ocultar el mensaje de error cuando el usuario ponga todos los datos requeridos
 const hideInputError = (inputElement) => {
-    const errorElement =
-        inputElement.parentElement.querySelector(`.form__error`);
+    const errorElement = inputElement.parentElement.querySelector(`.form__error`);
     inputElement.classList.remove("form__input_type_error");
     errorElement.classList.remove("form__input-error_active");
     errorElement.textContent = "";

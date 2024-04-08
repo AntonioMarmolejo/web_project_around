@@ -1,201 +1,140 @@
-<!DOCTYPE html><html lang="es">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="./pages/index.css" />
-        <link rel="icon" href="./images/cointool-nft-1642880319142.png" />
-        <title>Around The US.</title>
-    </head>
-    <body class="page">
-        <main class="main">
-            <header class="header">
-                <img
-                    class="header__logo"
-                    src="./images/Vector-logo.svg"
-                    alt="Logo del Proyecto"
-                />
-                <img
-                    class="header__line"
-                    src="./images/Line.png"
-                    alt="Linea detalle del Logo"
-                />
-            </header>
+<!DOCTYPE html>
+<html lang="es">
 
-            <div class="buttons">
-                <div class="buttons buttons__avatar">
-                    <img
-                        class="buttons__image"
-                        src="./images/image.jpg"
-                        alt="Imagel de Jacques Cousteau"
-                    />
-                </div>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./pages/index.css" />
+    <link rel="icon" href="./images/cointool-nft-1642880319142.png" />
+    <title>Around The US.</title>
+</head>
 
-                <div class="buttons buttons__intro">
-                    <h2 class="buttons__intro buttons__name">
-                        Jacques Cousteau
-                    </h2>
+<body class="page">
+    <main class="main">
+        <header class="header">
+            <img class="header__logo" src="./images/Vector-logo.svg" alt="Logo del Proyecto" />
+            <img class="header__line" src="./images/Line.png" alt="Linea detalle del Logo" />
+        </header>
 
-                    <button class="buttons__item buttons__item_index_profile">
-                        <img
-                            src="./images/Vector-pencil2.svg"
-                            alt="icono de pencil"
-                        />
-                    </button>
+        <div class="buttons">
+            <div class="buttons buttons__avatar">
+                <img class="buttons__image" src="./images/image.jpg" alt="Imagel de Jacques Cousteau" />
+            </div>
 
-                    <p class="buttons__intro buttons__explorer">Explorer</p>
-                </div>
+            <div class="buttons buttons__intro">
+                <h2 class="buttons__intro buttons__name">
+                    Jacques Cousteau
+                </h2>
 
-                <button class="buttons__item buttons__item_index_add-card">
-                    <img
-                        src="./images/Vector-suma-agregar.svg"
-                        alt="ícono de mas para agregar tarjetas"
-                    />
+                <button class="buttons__item buttons__item_index_profile">
+                    <img src="./images/Vector-pencil2.svg" alt="icono de pencil" />
                 </button>
 
-                <div class="buttons__modal"></div>
+                <p class="buttons__intro buttons__explorer">Explorer</p>
             </div>
 
-            <div class="popup popup_edit-profile">
-                <div class="popup__overlay"></div>
-                <div class="popup__content">
-                    <div class="popup__close-button">
-                        <img src="./images/Close-Icon.svg" alt="" />
-                    </div>
+            <button class="buttons__item buttons__item_index_add-card">
+                <img src="./images/Vector-suma-agregar.svg" alt="ícono de mas para agregar tarjetas" />
+            </button>
 
-                    <form class="form" novalidate>
-                        <h2 class="form__title">Editar perfil</h2>
-                        <label class="form__label" for="user-name">
-                            <input
-                                type="text"
-                                class="form__input"
-                                id="user-name"
-                                name="name"
-                                placeholder="Nuevo usuario"
-                                value=""
-                                minlength="2"
-                                maxlength="40"
-                                required
-                            />
-                            <span class="form__error form__error_type"></span>
-                        </label>
+            <div class="buttons__modal"></div>
+        </div>
 
-                        <label class="form__label" for="activity-input"
-                            ><input
-                                type="text"
-                                class="form__input"
-                                id="activity-input"
-                                name="activity"
-                                placeholder="Actividad"
-                                value=""
-                                minlength="2"
-                                maxlength="200"
-                                required />
-                            <span class="form__error form__error_type"></span
-                        ></label>
+        <div class="popup popup_edit-profile">
+            <div class="popup__overlay"></div>
+            <div class="popup__content">
+                <div class="popup__close-button">
+                    <img src="./images/Close-Icon.svg" alt="" />
+                </div>
 
-                        <input
-                            type="submit"
-                            class="form__submit"
-                            value="Guardar"
-                        />
-                    </form>
+                <form class="form" novalidate>
+                    <h2 class="form__title">Editar perfil</h2>
+
+                    <label class="form__label" for="user-name">
+
+                        <input type="text" class="form__input" id="user-name" name="name" placeholder="Nuevo usuario"
+                            value="" minlength="2" maxlength="40" required />
+
+                        <span class="form__error form__error_type"></span>
+                    </label>
+
+                    <label class="form__label" for="activity-input">
+
+                        <input type="text" class="form__input" id="activity-input" name="activity"
+                            placeholder="Actividad" value="" minlength="2" maxlength="200" required />
+
+                        <span class="form__error form__error_type"></span>
+                    </label>
+
+                    <input type="submit" class="form__submit" value="Guardar" />
+                </form>
+            </div>
+        </div>
+
+        <div class="popup popup_content-addcard">
+            <div class="popup__overlay"></div>
+            <div class="popup__content">
+                <div class="popup__close-button">
+                    <img src="./images/Close-Icon.svg" alt="" />
+                </div>
+
+                <form class="form" novalidate>
+                    <h2 class="form__title">Nuvo Lugar</h2>
+                    <label class="form__label" for="place-input">
+
+                        <input type="text" class="form__input" id="place-input" name="newplace"
+                            placeholder="Nombre del Lugar" value="" minlength="2" maxlength="30" required />
+
+                        <span class="form__error form__error_type"> </span>
+
+                    </label>
+
+                    <label class="form__label" for="url-input"><input type="url" class="form__input" id="url-input"
+                            name="enlace" placeholder="Url de la imagen" value="" required />
+
+                        <span class="form__error form__error_type"></span>
+                    </label>
+
+                    <input type="submit" class="form__submit" value="Crear" />
+                </form>
+            </div>
+        </div>
+
+        <div class="popup popup_content-image">
+            <div class="popup__overlay"></div>
+            <div class="popup__content popup__content_select">
+                <div class="popup__close-button popup__close-buttons">
+                    <img src="./images/Close-Icon.svg" alt="" />
+                </div>
+                <img src="#" alt="Imagen seleccionada" class="popup__image" id="popup__image" />
+                <p class="popup__title"></p>
+            </div>
+        </div>
+
+        <div class="cards"></div>
+
+        <template id="newElement">
+            <div class="cards__element">
+                <div class="cards__element_trast">
+                    <img src="./images/Group__reciclaje.svg" alt="Icono de reciclaje" />
+                </div>
+                <img class="cards__element_image" src="#" alt="imagen de Vanoise National" />
+                <div class="cards__element_item">
+                    <h2 class="cards__element_itemTitle"></h2>
+                    <img class="cards__element_itemImage" src="./images/Vector-corazon.svg" alt="incono de me gusta" />
                 </div>
             </div>
+        </template>
 
-            <div class="popup popup_content-addcard">
-                <div class="popup__overlay"></div>
-                <div class="popup__content">
-                    <div class="popup__close-button">
-                        <img src="./images/Close-Icon.svg" alt="" />
-                    </div>
+        <footer class="footer">
+            <p class="footer__copyright">
+                &#169; 2024 Around The U.S. - Antonio Marmolejo
+            </p>
+        </footer>
+    </main>
+    <script src="./scripts/index.js"></script>
+    <script src="./scripts/validate.js"></script>
+</body>
 
-                    <form class="form" novalidate>
-                        <h2 class="form__title">Nuvo Lugar</h2>
-                        <label class="form__label" for="place-input">
-                            <input
-                                type="text"
-                                class="form__input"
-                                id="place-input"
-                                name="newplace"
-                                placeholder="Nombre del Lugar"
-                                value=""
-                                minlength="2"
-                                maxlength="30"
-                                required />
-                            <span class="form__error form__error_type"> </span
-                        ></label>
-
-                        <label class="form__label" for="url-input"
-                            ><input
-                                type="url"
-                                class="form__input"
-                                id="url-input"
-                                name="enlace"
-                                placeholder="Url de la imagen"
-                                value=""
-                                required />
-                            <span class="form__error form__error_type"></span
-                        ></label>
-
-                        <input
-                            type="submit"
-                            class="form__submit"
-                            value="Crear"
-                        />
-                    </form>
-                </div>
-            </div>
-
-            <div class="popup popup_content-image">
-                <div class="popup__overlay"></div>
-                <div class="popup__content popup__content_select">
-                    <div class="popup__close-button popup__close-buttons">
-                        <img src="./images/Close-Icon.svg" alt="" />
-                    </div>
-                    <img
-                        src="#"
-                        alt="Imagen seleccionada"
-                        class="popup__image"
-                        id="popup__image"
-                    />
-                    <p class="popup__title"></p>
-                </div>
-            </div>
-
-            <div class="cards"></div>
-
-            <template id="newElement">
-                <div class="cards__element">
-                    <div class="cards__element_trast">
-                        <img
-                            src="./images/Group__reciclaje.svg"
-                            alt="Icono de reciclaje"
-                        />
-                    </div>
-                    <img
-                        class="cards__element_image"
-                        src="#"
-                        alt="imagen de Vanoise National"
-                    />
-                    <div class="cards__element_item">
-                        <h2 class="cards__element_itemTitle"></h2>
-                        <img
-                            class="cards__element_itemImage"
-                            src="./images/Vector-corazon.svg"
-                            alt="incono de me gusta"
-                        />
-                    </div>
-                </div>
-            </template>
-
-            <footer class="footer">
-                <p class="footer__copyright">
-                    &#169; 2024 Around The U.S. - Antonio Marmolejo
-                </p>
-            </footer>
-        </main>
-        <script src="./scripts/index.js"></script>
-        <script src="./scripts/validate.js"></script>
-    </body>
 </html>

@@ -1,9 +1,7 @@
 //NUEVOS BOTONES PARA CONTROLAR LOS POPUP
 
 const popupForm = document.querySelector(".popup");
-const buttonEdidProfile = document.querySelector(
-    ".buttons__item_index_profile"
-);
+const buttonEdidProfile = document.querySelector(".buttons__item_index_profile");
 // const allForms = document.querySelectorAll(".form");
 const buttonAddCard = document.querySelector(".buttons__item_index_add-card");
 const buttonImage = document.querySelector(".buttons__modal");
