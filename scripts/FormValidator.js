@@ -5,6 +5,7 @@ class FormValidator {
         this.enableValidation()
     }
 
+
     //Función para mostrar el mensaje de error cuando el usuario introduce datos erroneos en los campos
     _showInputError = (inputElement, errorMessage) => {
         const errorElement = inputElement.parentElement.querySelector(`.form__error`);
@@ -19,8 +20,8 @@ class FormValidator {
         const errorElement = inputElement.parentElement.querySelector(`.form__error`);
         inputElement.classList.remove("form__input_type_error");
         errorElement.classList.remove("form__input-error_active");
+        errorElement.textContent = "";
     };
-
 
     //Esta función revisa si el input es válido o no y dependiendo de esto activa o desactiva el boton guardar
     _checkInputValidity = (inputElement) => {
@@ -28,6 +29,7 @@ class FormValidator {
             this._showInputError(inputElement, inputElement.validationMessage);
         } else {
             this._hideInputError(inputElement);
+
         }
     };
 
@@ -74,6 +76,7 @@ class FormValidator {
             });
         });
     };
+
 }
 
 
