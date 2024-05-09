@@ -1,24 +1,21 @@
+import { togglePopup, storeData, showImage, resetForms, popupProfile, popupImage } from "./utils.js";
+import Card from "./card.js";
+import FormValidator from "./validate.js";
+
 //NUEVOS BOTONES PARA CONTROLAR LOS POPUP
 
 const popupForm = document.querySelector(".popup");
 const buttonEdidProfile = document.querySelector(".buttons__item_index_profile");
-// const allForms = document.querySelectorAll(".form");
+
 const buttonAddCard = document.querySelector(".buttons__item_index_add-card");
 const buttonImage = document.querySelector(".buttons__modal");
 
-const popupProfile = document.querySelector(".popup_edit-profile");
-const userName = document.querySelector(".buttons__name");
-const userActivity = document.querySelector(".buttons__explorer");
-const inputName = document.querySelector("#user-name");
-const inputActivity = document.querySelector("#activity-input");
 const allOverlay = document.querySelectorAll(".popup__overlay");
 const allInput = document.querySelectorAll(".form__error");
 
 const popupAddCard = document.querySelector(".popup_content-addcard");
 const inputAddCard = document.querySelector("#place-input");
 const inputUrl = document.querySelector("#url-input");
-
-const popupImage = document.querySelector(".popup_content-image");
 
 //BOTONES EDITAR PERFIL, AGREGAR TARJETA Y MOSTRAR IMAGEN
 const buttonCloseProfile = popupProfile.querySelector(".popup__close-button");
@@ -33,10 +30,8 @@ const buttonRecycle = document.querySelector(".cards__element_trast");
 //Contenedor donde se almacenaran todas la tarjetas que se vayan creando
 const cardsArea = document.querySelector(".cards");
 
-//Función que nos Permite Mostrar o Cerrar las Ventanas Emergentes
-function togglePopup(popup) {
-    popup.classList.toggle("popup_show");
-}
+//Selecciona todos los formularios que estén en el documento
+const allForms = document.querySelectorAll(".form");
 
 //Abrir formulario "Editar Perfil"
 buttonEdidProfile.addEventListener("click", (event) => {
@@ -107,68 +102,16 @@ const initialCards = [
 //Función para crear la 6 tarjetas principales que se cargaran por defecto
 function createMainCards() {
     initialCards.forEach((item) => {
-        const nuevoNodo = createNewCard(item.link, item.name);
-        cardsArea.append(nuevoNodo);
+        const card = new Card(item.link, item.name);
+        const generated = card.createNewCard()
+        cardsArea.append(generated);
     });
 }
-
 //Carga las 6 Tarjetas principales al cargarse la página
 window.addEventListener("load", createMainCards);
 
 //Función para editar el perfil del usuario, el nombre y la actividad
-function storeData(event) {
-    event.preventDefault();
-
-    const userNew = inputName.value;
-    const activitiNew = inputActivity.value;
-
-    userName.textContent = userNew;
-    userActivity.textContent = activitiNew;
-    togglePopup(popupProfile);
-    resetForms(allForms);
-}
 buttonSave.addEventListener("click", storeData);
-
-//Utiliza la plantilla colocada en html para crear la nueva tarjeta ingresada por el usuario
-function createNewCard(link, title) {
-    //Seleccionamos el template donde vamos a crear la nueva tarjeta
-    const newElement = document.querySelector("#newElement").content;
-
-    //Clonamos el nodo de la tarjeta donde vamos a agregar el enlace
-    const userElement = newElement
-        .querySelector(".cards__element")
-        .cloneNode("true");
-
-    //Agregamos el enlace de la nueva imagen
-    userElement.querySelector(".cards__element_image").src = link;
-    userElement.querySelector(".cards__element_image").alt = title;
-
-    //Agregamos el título de la nueva imagen
-    userElement.querySelector(".cards__element_itemTitle").textContent = title;
-
-    //A la tarjeta creada se le da el Evento Click que activa el boton de me gusta si el usuario lo selecciona
-    userElement
-        .querySelector(".cards__element_itemImage")
-        .addEventListener("click", function (event) {
-            event.target.classList.toggle("cards__like_active");
-        });
-
-    //A la tarjeta creada se le da el Evento click que nos permite eliminar la tarjeta seleccionada
-    userElement
-        .querySelector(".cards__element_trast")
-        .addEventListener("click", function () {
-            userElement.remove();
-        });
-
-    //A la tarjeta creada se le da el evento click que nos permite mostrar la tarjeta en la pantalla una vez que el usuario la seleccione
-    userElement
-        .querySelector(".cards__element_image")
-        .addEventListener("click", function () {
-            showImage(link, title);
-        });
-
-    return userElement;
-}
 
 //Función que nos permite crear otra tarjeta tomando los datos ingresados en el formulario "Nueva Tarjeta"
 popupAddCard.addEventListener("submit", function (event) {
@@ -177,34 +120,14 @@ popupAddCard.addEventListener("submit", function (event) {
     const link = inputUrl.value;
     const title = inputAddCard.value;
 
-    const nuevoNodo = createNewCard(link, title);
-
-    cardsArea.prepend(nuevoNodo);
+    const nuevoNodo = new Card(link, title);
+    const generatedNewCard = nuevoNodo.createNewCard();
+    cardsArea.prepend(generatedNewCard);
     togglePopup(popupAddCard, true);
 
     //luego cerrará el formulario suavemente
     resetForms(allForms);
 });
-
-//Función que nos pemite mostrar al frente la imagen que seleccionemos, y la resaltará para poder verla con mas detalles, ademas mostrará el nombre de la misma en el pié.
-function showImage(src, alt) {
-    const modalImage = document.querySelector("#popup__image");
-    const nombreModal = document.querySelector(".popup__title");
-
-    modalImage.src = src;
-    modalImage.alt = alt;
-    nombreModal.textContent = alt;
-    togglePopup(popupImage);
-}
-
-// Función que nos permite resetear los formularios y también
-function resetForms(forms) {
-    forms.forEach((form) => {
-        // Resetea cada entrada de los formularios para eliminar los datos que quedan
-        form.reset();
-        form.querySelector(".form__submit").classList.add("button_inactive");
-    });
-}
 
 //Esta función revisa si hay alguna ventana del documento con la clase popup_show y si la hay procede a cerrar y a restablecer todos los foumlarios
 allOverlay.forEach((item) => {
@@ -227,3 +150,7 @@ document.addEventListener("keydown", function (evt) {
         }
     }
 });
+
+
+const Validation = new FormValidator(allForms);
+Validation.enableValidation();
