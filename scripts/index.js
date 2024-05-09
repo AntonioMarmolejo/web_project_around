@@ -1,6 +1,6 @@
 import { togglePopup, storeData, showImage, resetForms, popupProfile, popupImage } from "./utils.js";
-import Card from "./Card.js";
-import FormValidator from "./FormValidator.js";
+import Card from "./Card1.js";
+import FormValidator from "./FormValidator1.js";
 
 //NUEVOS BOTONES PARA CONTROLAR LOS POPUP
 
