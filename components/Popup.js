@@ -44,3 +44,4 @@ class Popup {
 // myPopup.setEventListeners();
 
 
+export default Popup

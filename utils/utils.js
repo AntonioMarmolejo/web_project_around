@@ -1,10 +1,4 @@
-const userName = document.querySelector(".buttons__name");
-const userActivity = document.querySelector(".buttons__explorer");
-const inputName = document.querySelector("#user-name");
-const inputActivity = document.querySelector("#activity-input");
-const popupProfile = document.querySelector(".popup_edit-profile");
-const allForms = document.querySelectorAll(".form");
-const popupImage = document.querySelector(".popup_content-image");
+import { userName, userActivity, inputName, inputActivity, popupImage, popupProfile, allForms } from "./constants.js"
 
 //Función que nos Permite Mostrar o Cerrar las Ventanas Emergentes
 function togglePopup(popup) {
@@ -44,4 +38,4 @@ function resetForms(forms) {
     });
 }
 
-export { togglePopup, storeData, showImage, resetForms, popupProfile, allForms, popupImage };
+export { togglePopup, storeData, showImage, resetForms };

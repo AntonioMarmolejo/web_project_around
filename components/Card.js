@@ -1,4 +1,4 @@
-import { showImage } from "./utils.js";
+import { showImage } from "../utils/utils.js";
 
 class Card {
     constructor(link, name, cardSelector) {
