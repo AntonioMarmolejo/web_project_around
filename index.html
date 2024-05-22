@@ -5,21 +5,21 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./pages/index.css" />
-    <link rel="icon" href="./images/cointool-nft-1642880319142.png" />
+    <link rel="stylesheet" href="./src/pages/index.css" />
+    <link rel="icon" href="./src/images/cointool-nft-1642880319142.png" />
     <title>Around The US.</title>
 </head>
 
 <body class="page">
     <main class="main">
         <header class="header">
-            <img class="header__logo" src="./images/Vector-logo.svg" alt="Logo del Proyecto" />
-            <img class="header__line" src="./images/Line.png" alt="Linea detalle del Logo" />
+            <img class="header__logo" src="./src/images/Vector-logo.svg" alt="Logo del Proyecto" />
+            <img class="header__line" src="./src/images/Line.png" alt="Linea detalle del Logo" />
         </header>
 
         <div class="buttons">
             <div class="buttons buttons__avatar">
-                <img class="buttons__image" src="./images/image.jpg" alt="Imagel de Jacques Cousteau" />
+                <img class="buttons__image" src="./src/images/image.jpg" alt="Imagel de Jacques Cousteau" />
             </div>
 
             <div class="buttons buttons__intro">
@@ -28,14 +28,14 @@
                 </h2>
 
                 <button class="buttons__item buttons__item_index_profile">
-                    <img src="./images/Vector-pencil2.svg" alt="icono de pencil" />
+                    <img src="./src/images/Vector-pencil2.svg" alt="icono de pencil" />
                 </button>
 
                 <p class="buttons__intro buttons__explorer">Explorer</p>
             </div>
 
             <button class="buttons__item buttons__item_index_add-card">
-                <img src="./images/Vector-suma-agregar.svg" alt="ícono de mas para agregar tarjetas" />
+                <img src="./src/images/Vector-suma-agregar.svg" alt="ícono de mas para agregar tarjetas" />
             </button>
 
             <div class="buttons__modal"></div>
@@ -45,7 +45,7 @@
             <div class="popup__overlay"></div>
             <div class="popup__content">
                 <div class="popup__close-button">
-                    <img src="./images/Close-Icon.svg" alt="" />
+                    <img src="./src/images/Close-Icon.svg" alt="" />
                 </div>
 
                 <form class="form" novalidate>
@@ -76,7 +76,7 @@
             <div class="popup__overlay"></div>
             <div class="popup__content">
                 <div class="popup__close-button">
-                    <img src="./images/Close-Icon.svg" alt="" />
+                    <img src="./src/images/Close-Icon.svg" alt="" />
                 </div>
 
                 <form class="form" novalidate>
@@ -105,7 +105,7 @@
             <div class="popup__overlay"></div>
             <div class="popup__content popup__content_select">
                 <div class="popup__close-button popup__close-buttons">
-                    <img src="./images/Close-Icon.svg" alt="" />
+                    <img src="./src/images/Close-Icon.svg" alt="" />
                 </div>
                 <img src="#" alt="Imagen seleccionada" class="popup__image" id="popup__image" />
                 <p class="popup__title"></p>
@@ -117,12 +117,13 @@
         <template id="newElement">
             <div class="cards__element">
                 <div class="cards__element_trast">
-                    <img src="./images/Group__reciclaje.svg" alt="Icono de reciclaje" />
+                    <img src="./src/images/Group__reciclaje.svg" alt="Icono de reciclaje" />
                 </div>
                 <img class="cards__element_image" src="#" alt="imagen de Vanoise National" />
                 <div class="cards__element_item">
                     <h2 class="cards__element_itemTitle"></h2>
-                    <img class="cards__element_itemImage" src="./images/Vector-corazon.svg" alt="incono de me gusta" />
+                    <img class="cards__element_itemImage" src="./src/images/Vector-corazon.svg"
+                        alt="incono de me gusta" />
                 </div>
             </div>
         </template>
@@ -133,7 +134,7 @@
             </p>
         </footer>
     </main>
-    <script type="module" src="./scripts/index.js"></script>
+    <script type="module" src="./src/scripts/index.js"></script>
 </body>
 
 </html>
