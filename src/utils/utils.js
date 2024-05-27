@@ -3,7 +3,7 @@ import { userName, userActivity, inputName, inputActivity, popupImage, popupProf
 //Función que nos Permite Mostrar o Cerrar las Ventanas Emergentes
 function togglePopup(popup) {
     popup.classList.toggle("popup_show");
-}
+} Z
 
 //Función para editar el perfil del usuario, el nombre y la actividad
 function storeData(event) {

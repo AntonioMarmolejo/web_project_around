@@ -1,9 +1,10 @@
 import { showImage } from "../utils/utils.js";
+import { PopupWithImage } from "./PopupWithImage.js"
 
 class Card {
-    constructor(link, name, cardSelector) {
-        this._link = link;
-        this._name = name;
+    constructor({ data }, cardSelector) {
+        this._link = data.link;
+        this._name = data.name;
         this._cardSelector = cardSelector;
     }
 

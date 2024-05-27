@@ -7,10 +7,8 @@ const popupImage = document.querySelector(".popup_content-image");
 
 //NUEVOS BOTONES PARA CONTROLAR LOS POPUP
 
-const popupForm = document.querySelector(".popup");
-const buttonEdidProfile = document.querySelector(
-    ".buttons__item_index_profile"
-);
+const popupForm = document.querySelector(".popup"); //  
+const buttonEdidProfile = document.querySelector(".buttons__item_index_profile");
 
 const buttonAddCard = document.querySelector(".buttons__item_index_add-card");
 const buttonImage = document.querySelector(".buttons__modal");
@@ -75,8 +73,6 @@ export {
     popupImage,
     popupProfile,
     allForms,
-};
-export {
     popupForm,
     buttonEdidProfile,
     buttonAddCard,

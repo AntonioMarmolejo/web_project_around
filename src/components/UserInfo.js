@@ -41,3 +41,25 @@ UserInfo recibe los selectores CSS de los elementos que contienen el nombre y el
 El método getUserInfo() devuelve un objeto con la información actual del usuario.
 El método setUserInfo() actualiza los elementos con los nuevos datos del usuario.
  */
+
+
+/**
+ export class UserInfo {
+  constructor({ userNameSelector, userJobSelector }) {
+    this._userNameElement = userNameSelector;
+    this._userJobElement = userJobSelector;
+  }
+
+  getUserInfo() {
+    return {
+      name: this._userNameElement.textContent,
+      job: this._userJobElement.textContent,
+    };
+  }
+
+  setUserInfo({ name, job }) {
+    this._userNameElement.textContent = name;
+    this._userJobElement.textContent = job;
+  }
+}
+ */
