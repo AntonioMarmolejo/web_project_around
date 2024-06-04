@@ -1,18 +1,21 @@
-import { showImage } from "../utils/utils.js";
-import { PopupWithImage } from "./PopupWithImage.js"
+import PopupWithImage from "./PopupWithImage.js";
 
 class Card {
-    constructor({ data }, cardSelector) {
+    constructor({ data, handleCardClick }, cardSelector) {
         this._link = data.link;
         this._name = data.name;
         this._cardSelector = cardSelector;
+        this._handleCardClick = handleCardClick;
     }
 
-
     _getTemplate() {
-        //Seleccionamos el template donde vamos a crear la nueva tarjeta //Clonamos el nodo de la tarjeta donde vamos a agregar el enlace
-        const newElement = document.querySelector("#newElement").content.querySelector(".cards__element").cloneNode("true");
-        return newElement;
+        const newElemnt = document
+            .querySelector(this._cardSelector)
+            .content
+            .querySelector(".cards__element")
+            .cloneNode("true");
+
+        return newElemnt;
     }
 
     _handleLikeAndDislike() {
@@ -32,7 +35,7 @@ class Card {
     _showCard() {
         //A la tarjeta creada se le da el evento click que nos permite mostrar la tarjeta en la pantalla una vez que el usuario la seleccione
         this._element.querySelector(".cards__element_image").addEventListener("click", () => {
-            showImage(this._link, this._name);
+            PopupWithImage.open(this._link, this._name);
         });
     }
 
@@ -40,18 +43,22 @@ class Card {
         this._handleLikeAndDislike();
         this._handleRemove();
         this._showCard();
+        // this._element.addEventListener("click", () => {
+        //     this._handleCardClick(this._data);
+        // })
+
+        this._imagenElement.addEventListener("click", () => {
+            this._handleCardClick({ link: this._link, name: this._name });
+        });
     }
     //Utiliza la plantilla colocada en html para crear la nueva tarjeta ingresada por el usuario
-    createNewCard() {
+    createNewCard(link, name) {
         this._element = this._getTemplate();
+        this._element.querySelector(".cards__element_itemTitle").textContent = name;
+        this._imagenElement = this._element.querySelector(".cards__element_image");
+        this._imagenElement.src = link;
+        this._imagenElement.alt = name;
         this._setEventListeners();
-
-        //Agregamos el enlace de la nueva imagen
-        this._element.querySelector(".cards__element_image").src = this._link;
-        this._element.querySelector(".cards__element_image").alt = this._name;
-
-        //Agregamos el título de la nueva imagen
-        this._element.querySelector(".cards__element_itemTitle").textContent = this._name;
 
         return this._element;
     }

@@ -1,4 +1,5 @@
-const userName = document.querySelector(".buttons__name"); const userActivity = document.querySelector(".buttons__explorer");
+const userName = document.querySelector(".buttons__name");
+const userActivity = document.querySelector(".buttons__explorer");
 const inputName = document.querySelector("#user-name");
 const inputActivity = document.querySelector("#activity-input");
 const popupProfile = document.querySelector(".popup_edit-profile");
@@ -7,7 +8,7 @@ const popupImage = document.querySelector(".popup_content-image");
 
 //NUEVOS BOTONES PARA CONTROLAR LOS POPUP
 
-const popupForm = document.querySelector(".popup"); //  
+const popupForm = document.querySelector(".popup"); //
 const buttonEdidProfile = document.querySelector(".buttons__item_index_profile");
 
 const buttonAddCard = document.querySelector(".buttons__item_index_add-card");
@@ -31,6 +32,7 @@ const buttonLike = document.querySelector(".cards__element_item-imagen");
 const buttonRecycle = document.querySelector(".cards__element_trast");
 
 //Contenedor donde se almacenaran todas la tarjetas que se vayan creando
+const cardTemplate = "#newElement";
 const cardsArea = document.querySelector(".cards");
 
 const initialCards = [
@@ -90,4 +92,5 @@ export {
     buttonRecycle,
     cardsArea,
     initialCards,
+    cardTemplate
 };

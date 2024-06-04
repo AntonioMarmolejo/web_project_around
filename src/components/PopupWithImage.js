@@ -1,23 +1,16 @@
 import Popup from "./Popup.js";
-
+//Esta clase lo que nos permitirá es que al momento de darle click a una de las imágenes de nuestra página, este se mostrará en la ventana, y ademas tendrá un descripción corta en la parte inferior de la mistma.
 export default class PopupWithImage extends Popup {
     constructor(popupSelector) {
         super(popupSelector);
-        this._image = this._popup.querySelector('.popup__image');
-        this._caption = this._popup.querySelector('.popup__caption');
+        this._image = document.querySelector("#popup__image");
+        this._description = document.querySelector(".popup__title");
     }
 
-    open(imageUrl, caption) {
-        this._image.src = imageUrl;
-        this._image.alt = caption;
-        this._caption.textContent = caption;
+    open(link, name) {
+        this._image.src = link;
+        this._description.alt = name;
+        this._description.textContent = name;
         super.open();
     }
 }
-
-// Ejemplo de uso:
-const myImagePopup = new PopupWithImage('.popup-image');
-myImagePopup.setEventListeners();
-
-// Luego, para abrir el popup con una imagen y leyenda:
-myImagePopup.open('https://example.com/image.jpg', 'Una hermosa puesta de sol');

@@ -1,49 +1,42 @@
 import Popup from "./Popup.js";
 
 export default class PopupWithForm extends Popup {
-    constructor(popupSelector, submitCallback) {
+    constructor(popupSelector, submiCallback) {
         super(popupSelector);
-        this._form = this._popup.querySelector('.popup__form');
-        this._submitCallback = submitCallback;
+        this._submitButton = submiCallback;
     }
 
-    _getInputValues() {
-        // Recopilar datos de todos los campos de entrada del formulario
-        // (por ejemplo, this._form.querySelector('.input-name').value)
-        // ...
+    _getInputValues() { //método para almacenar los valores de todos los campos de entrada
+        const valuesImput = {} //Objeto para almacenar todos los valores de los campos de entrada
+        const allInput = document.querySelectorAll("form__input");
+
+        allInput.forEach((item) => {
+            if (item.type === "text" || item.type === "number" || item.url) {
+                valuesImput[item.value] = item.value
+            }
+        })
+        return valuesImput;
     }
-
-    setEventListeners() {
-        super.setEventListeners();
-
-        this._form.addEventListener('submit', (event) => {
-            event.preventDefault();
-            const formData = this._getInputValues();
-            this._submitCallback(formData);
-            this.close();
-        });
-    }
-
     close() {
         super.close();
         this._form.reset(); // Reiniciar el formulario al cerrar el popup
     }
+
+    setEventListeners() {
+        const closeButton = document.createElement("popup__close-button");
+        super.setEventListeners();
+        this._submitButton.addEventListener("submit", (evt) => {
+            evt.preventDefault();
+            const formData = this._getInputValues();
+            this._submitButton(formData);
+            this.close();
+        });
+
+        closeButton.addEventListener("click", (evt) => {
+            evt.preventDefault();
+            this.close();
+        })
+
+    }
+
 }
-
-// Ejemplo de uso:
-const myFormPopup = new PopupWithForm('.popup-form', (formData) => {
-    // Lógica para enviar el formulario con los datos en formData
-    // ...
-});
-myFormPopup.setEventListeners();
-
-/**
- En este ejemplo:
-
-PopupWithForm hereda de Popup.
-El método _getInputValues() recopila los datos de los campos de entrada del formulario.
-El método setEventListeners() personaliza la lógica para enviar el formulario y cierra el popup después de enviarlo.
-Asegúrate de reemplazar '.popup-form' con el selector CSS de tu ventana emergente (popup) para formularios.
-Adaptar la lógica dentro del callback submitCallback según tus necesidades específicas.
-Recuerda que puedes crear múltiples instancias de PopupWithForm para diferentes popups en tu aplicación. ¡Espero que te sea útil!
- */
