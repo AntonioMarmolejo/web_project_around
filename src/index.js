@@ -9,21 +9,11 @@ import Section from "./components/Section.js";
 import UserInfo from "./components/UserInfo.js";
 import {
     popupImage,
-    userName,
-    userActivity,
-    inputAddCard,
-    inputUrl,
-    carElement,
-    carElementTitle,
-    buttonCreate,
-    buttonSave,
     initialCards,
     allForms,
     cardTemplate,
     buttonAddCard,
     buttonEdidProfile,
-    inputName,
-    inputActivity,
     popupProfile,
     popupAddCard
 } from "./utils/constants.js";
@@ -68,16 +58,6 @@ const popupFormEditProfile = new PopupWithForm(popupProfile, (formData) => {
 });
 popupFormEditProfile.setEventListeners();
 
-//Función para editar el perfil del usuario, el nombre y la actividad al darle click al boton guardar
-/*
-buttonSave.addEventListener("click", (evt) => {
-    evt.preventDefault();
-    userName.textContent = inputName.value;
-    userActivity.textContent = inputActivity.value;;
-    resetForms(allForms);
-    popupFormEditProfile.close();
-});
-*/
 
 //Código para brir el popup de editar perfil
 buttonEdidProfile.addEventListener("click", () => {
@@ -93,19 +73,6 @@ const popupFormContentAddCard = new PopupWithForm(popupAddCard, (formData) => {
 });
 popupFormContentAddCard.setEventListeners();
 
-/*
-
-buttonCreate.addEventListener("click", (evt) => {
-    evt.preventDefault();
-
-    carElement.src = inputUrl.value;
-    carElement.alt = inputAddCard.value;
-    carElementTitle.textContent = inputAddCard.value;
-
-    resetForms(allForms);
-    popupFormContentAddCard.close();
-})
-*/
 
 //Codigo para abril el formulario de añadir tarjeta dando click en un boton de abrir el popup
 buttonAddCard.addEventListener("click", () => {

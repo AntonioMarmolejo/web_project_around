@@ -1,8 +1,3 @@
-
-const inputName = document.querySelector("#user-name");
-const inputActivity = document.querySelector("#activity-input");
-const userName = document.querySelector(".buttons__name");
-const userActivity = document.querySelector(".buttons__explorer");
 const allForms = document.querySelectorAll(".form");
 const popupForm = document.querySelector(".popup"); //
 const buttonEdidProfile = document.querySelector(".buttons__item_index_profile");
@@ -12,16 +7,10 @@ const allInput = document.querySelectorAll(".form__error");
 const popupProfile = ".popup_edit-profile";
 const popupAddCard = ".popup_content-addcard";
 const popupImage = ".popup_content-image";
-const inputAddCard = document.querySelector("#place-input");
-const inputUrl = document.querySelector("#url-input");
 const buttonClose = document.querySelector(".popup__close-button");
-const buttonSave = document.querySelector(".popup_edit-profile .form__submit");
-const buttonCreate = document.querySelector(".popup_content-addcard .form__submit");
 const buttonLike = document.querySelector(".cards__element_item-imagen");
 const buttonRecycle = document.querySelector(".cards__element_trast");
 const cardTemplate = "#newElement";
-const carElement = document.querySelector(".cards__element_image");
-const carElementTitle = document.querySelector(".cards__element_itemTitle");
 const cardsArea = document.querySelector(".cards");
 
 const initialCards = [
@@ -57,10 +46,6 @@ const initialCards = [
     },
 ];
 export {
-    userName,
-    userActivity,
-    inputName,
-    inputActivity,
     popupImage,
     popupProfile,
     allForms,
@@ -70,16 +55,10 @@ export {
     allOverlay,
     allInput,
     popupAddCard,
-    inputAddCard,
-    inputUrl,
     buttonClose,
-    buttonSave,
-    buttonCreate,
     buttonLike,
     buttonRecycle,
     cardsArea,
     initialCards,
-    cardTemplate,
-    carElement,
-    carElementTitle
+    cardTemplate
 };
