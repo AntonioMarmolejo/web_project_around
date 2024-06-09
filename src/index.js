@@ -1,77 +1,121 @@
 import "./styles/index.css";
 
-import {
-    togglePopup,
-    resetForms,
-} from "./utils/utils.js";
+import { resetForms } from "./utils/utils.js";
 import Card from "./components/Card.js";
 import FormValidator from "./components/FormValidator.js";
-import Popup from "./components/Popup.js";
 import PopupWithForm from "./components/PopupWithForm.js";
 import PopupWithImage from "./components/PopupWithImage.js";
 import Section from "./components/Section.js";
 import UserInfo from "./components/UserInfo.js";
 import {
-    popupProfile,
-    popupAddCard,
     popupImage,
+    userName,
+    userActivity,
     inputAddCard,
     inputUrl,
+    carElement,
+    carElementTitle,
+    buttonCreate,
     buttonSave,
     initialCards,
     allForms,
-    cardTemplate
+    cardTemplate,
+    buttonAddCard,
+    buttonEdidProfile,
+    inputName,
+    inputActivity,
+    popupProfile,
+    popupAddCard
 } from "./utils/constants.js";
 
+
 //Clase encargada de mostrar la imagen seleccionada en la ventana emergente
-const poputImagen = new PopupWithImage("popup_content-image");
+const poputImagen = new PopupWithImage(popupImage);
+poputImagen.setEventListeners();
+
+//Función para editar el perfil del
 const handleCardClick = (data) => { poputImagen.open(data.link, data.name) };
 
 
-//Intanciamos la calse card pasándole el array de datos, la funcion y la clase donde vamos a almacenar los datos
+//Función para crear una nueva tarjeta
 const createCards = (data) => {
     const cardsIntance = new Card({ data, handleCardClick }, cardTemplate);
-    return cardsIntance.createNewCard(data.link, data.name);
-}
+    return cardsIntance.createNewCard();
+};
 
 //Instanciamos la clase para crear y renderizar las tarjetas del array
 const mySection = new Section({
     items: initialCards,
     renderer: (item) => {
         return createCards(item);
-    },
+    }
 }, ".cards");
 //Carga las 6 Tarjetas principales al cargarse la página
 window.addEventListener("load", () => mySection.renderer());
 
-
-// //Clase que alamcenará los datos del usuario
-const UserData = new UserInfo({
+//Clase que alamcenará los datos del usuario
+const userData = new UserInfo({
     nameSelector: ".buttons__name",
     jobSelector: ".buttons__explorer"
 });
-//Función para editar el perfil del usuario, el nombre y la actividad
-buttonSave.addEventListener("click", UserData.getUserInfo());
 
-//Instanciamos algunas todas las clases para los popup
-const popupFormEditProfile = new PopupWithForm(popupProfile, handleCardClick);
+//Instanciamos todas las clases para los popup
+const popupFormEditProfile = new PopupWithForm(popupProfile, (formData) => {
+    userData.setUserInfo({ name: formData.name, job: formData.activity });
+    popupFormEditProfile.close();
+    resetForms(allForms);
+
+});
 popupFormEditProfile.setEventListeners();
 
-const popupFormContentAddCar = new PopupWithForm(popupAddCard, handleCardClick);
-popupFormContentAddCar.setEventListeners();
+//Función para editar el perfil del usuario, el nombre y la actividad al darle click al boton guardar
+/*
+buttonSave.addEventListener("click", (evt) => {
+    evt.preventDefault();
+    userName.textContent = inputName.value;
+    userActivity.textContent = inputActivity.value;;
+    resetForms(allForms);
+    popupFormEditProfile.close();
+});
+*/
 
-const popupFormContentImage = new PopupWithForm(popupImage, handleCardClick);
-popupFormContentImage.setEventListeners();
+//Código para brir el popup de editar perfil
+buttonEdidProfile.addEventListener("click", () => {
+    popupFormEditProfile.open();
+});
 
-//Función que nos permite crear otra tarjeta tomando los datos ingresados en el formulario "Nueva Tarjeta"
+//Instancia de popupWithForm para manejar el formulario de añadir la tarjeta
+const popupFormContentAddCard = new PopupWithForm(popupAddCard, (formData) => {
+    const newCard = createCards({ name: formData.newplace, link: formData.enlace });
+    document.querySelector(".cards").prepend(newCard);
+    popupFormContentAddCard.close();
+    resetForms(allForms);
+});
+popupFormContentAddCard.setEventListeners();
 
-const link = inputUrl.value;
-const name = inputAddCard.value;
+/*
 
-const newCards = new Card({ data: { link, name }, handleCardClick }, ".cards");
-newCards.createNewCard();
+buttonCreate.addEventListener("click", (evt) => {
+    evt.preventDefault();
 
+    carElement.src = inputUrl.value;
+    carElement.alt = inputAddCard.value;
+    carElementTitle.textContent = inputAddCard.value;
+
+    resetForms(allForms);
+    popupFormContentAddCard.close();
+})
+*/
+
+//Codigo para abril el formulario de añadir tarjeta dando click en un boton de abrir el popup
+buttonAddCard.addEventListener("click", () => {
+    popupFormContentAddCard.open();
+});
+
+//Validación del formulario
 const Validation = new FormValidator(allForms);
 Validation.enableValidation();
+
+
 
 

@@ -35,7 +35,7 @@ class Card {
     _showCard() {
         //A la tarjeta creada se le da el evento click que nos permite mostrar la tarjeta en la pantalla una vez que el usuario la seleccione
         this._element.querySelector(".cards__element_image").addEventListener("click", () => {
-            PopupWithImage.open(this._link, this._name);
+            this._handleCardClick({ link: this._link, name: this._name });
         });
     }
 
@@ -43,21 +43,17 @@ class Card {
         this._handleLikeAndDislike();
         this._handleRemove();
         this._showCard();
-        // this._element.addEventListener("click", () => {
-        //     this._handleCardClick(this._data);
-        // })
-
         this._imagenElement.addEventListener("click", () => {
             this._handleCardClick({ link: this._link, name: this._name });
         });
     }
     //Utiliza la plantilla colocada en html para crear la nueva tarjeta ingresada por el usuario
-    createNewCard(link, name) {
+    createNewCard() {
         this._element = this._getTemplate();
-        this._element.querySelector(".cards__element_itemTitle").textContent = name;
+        this._element.querySelector(".cards__element_itemTitle").textContent = this._name;
         this._imagenElement = this._element.querySelector(".cards__element_image");
-        this._imagenElement.src = link;
-        this._imagenElement.alt = name;
+        this._imagenElement.src = this._link;
+        this._imagenElement.alt = this._name;
         this._setEventListeners();
 
         return this._element;

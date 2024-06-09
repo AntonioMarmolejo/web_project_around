@@ -1,38 +1,27 @@
-const userName = document.querySelector(".buttons__name");
-const userActivity = document.querySelector(".buttons__explorer");
+
 const inputName = document.querySelector("#user-name");
 const inputActivity = document.querySelector("#activity-input");
-const popupProfile = document.querySelector(".popup_edit-profile");
+const userName = document.querySelector(".buttons__name");
+const userActivity = document.querySelector(".buttons__explorer");
 const allForms = document.querySelectorAll(".form");
-const popupImage = document.querySelector(".popup_content-image");
-
-//NUEVOS BOTONES PARA CONTROLAR LOS POPUP
-
 const popupForm = document.querySelector(".popup"); //
 const buttonEdidProfile = document.querySelector(".buttons__item_index_profile");
-
 const buttonAddCard = document.querySelector(".buttons__item_index_add-card");
-const buttonImage = document.querySelector(".buttons__modal");
-
 const allOverlay = document.querySelectorAll(".popup__overlay");
 const allInput = document.querySelectorAll(".form__error");
-
-const popupAddCard = document.querySelector(".popup_content-addcard");
+const popupProfile = ".popup_edit-profile";
+const popupAddCard = ".popup_content-addcard";
+const popupImage = ".popup_content-image";
 const inputAddCard = document.querySelector("#place-input");
 const inputUrl = document.querySelector("#url-input");
-
-//BOTONES EDITAR PERFIL, AGREGAR TARJETA Y MOSTRAR IMAGEN
-const buttonCloseProfile = popupProfile.querySelector(".popup__close-button");
-const buttonCloseAddCard = popupAddCard.querySelector(".popup__close-button");
-const buttonCloseImage = popupImage.querySelector(".popup__close-button");
-
-//Botones CERRAR, ME GUSTA Y RECICLAJE
-const buttonSave = document.querySelector(".form__submit");
+const buttonClose = document.querySelector(".popup__close-button");
+const buttonSave = document.querySelector(".popup_edit-profile .form__submit");
+const buttonCreate = document.querySelector(".popup_content-addcard .form__submit");
 const buttonLike = document.querySelector(".cards__element_item-imagen");
 const buttonRecycle = document.querySelector(".cards__element_trast");
-
-//Contenedor donde se almacenaran todas la tarjetas que se vayan creando
 const cardTemplate = "#newElement";
+const carElement = document.querySelector(".cards__element_image");
+const carElementTitle = document.querySelector(".cards__element_itemTitle");
 const cardsArea = document.querySelector(".cards");
 
 const initialCards = [
@@ -78,19 +67,19 @@ export {
     popupForm,
     buttonEdidProfile,
     buttonAddCard,
-    buttonImage,
     allOverlay,
     allInput,
     popupAddCard,
     inputAddCard,
     inputUrl,
-    buttonCloseProfile,
-    buttonCloseAddCard,
-    buttonCloseImage,
+    buttonClose,
     buttonSave,
+    buttonCreate,
     buttonLike,
     buttonRecycle,
     cardsArea,
     initialCards,
-    cardTemplate
+    cardTemplate,
+    carElement,
+    carElementTitle
 };

@@ -4,38 +4,41 @@ export default class PopupWithForm extends Popup {
     constructor(popupSelector, submiCallback) {
         super(popupSelector);
         this._submitButton = submiCallback;
+        this._form = document.querySelector(popupSelector).querySelector(".form");
     }
 
     _getInputValues() { //método para almacenar los valores de todos los campos de entrada
         const valuesImput = {} //Objeto para almacenar todos los valores de los campos de entrada
-        const allInput = document.querySelectorAll("form__input");
+        const allInput = this._form.querySelectorAll(".form__input");
 
         allInput.forEach((item) => {
-            if (item.type === "text" || item.type === "number" || item.url) {
-                valuesImput[item.value] = item.value
+            if (item.name) {
+                valuesImput[item.name] = item.value
             }
-        })
+        });
         return valuesImput;
     }
     close() {
-        super.close();
         this._form.reset(); // Reiniciar el formulario al cerrar el popup
+        super.close();
     }
 
     setEventListeners() {
-        const closeButton = document.createElement("popup__close-button");
         super.setEventListeners();
-        this._submitButton.addEventListener("submit", (evt) => {
+        this._form.addEventListener("submit", (evt) => {
             evt.preventDefault();
             const formData = this._getInputValues();
             this._submitButton(formData);
             this.close();
         });
 
-        closeButton.addEventListener("click", (evt) => {
-            evt.preventDefault();
-            this.close();
-        })
+        const closeButton = this._form.querySelector(this._closeButonSelector);
+        if (closeButton) {
+            closeButton.addEventListener("click", (evt) => {
+                evt.preventDefault();
+                this.close();
+            });
+        }
 
     }
 
