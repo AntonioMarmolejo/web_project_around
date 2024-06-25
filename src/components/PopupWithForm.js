@@ -1,19 +1,20 @@
-import Popup from "./Popup.js";
-
-export default class PopupWithForm extends Popup {
+import Popup from "./Popup.js";export default class PopupWithForm extends Popup {
     constructor(popupSelector, submiCallback) {
         super(popupSelector);
         this._submitButton = submiCallback;
-        this._form = document.querySelector(popupSelector).querySelector(".form");
+        this._form = document
+            .querySelector(popupSelector)
+            .querySelector(".form");
     }
 
-    _getInputValues() { //método para almacenar los valores de todos los campos de entrada
-        const valuesImput = {} //Objeto para almacenar todos los valores de los campos de entrada
+    _getInputValues() {
+        //método para almacenar los valores de todos los campos de entrada
+        const valuesImput = {}; //Objeto para almacenar todos los valores de los campos de entrada
         const allInput = this._form.querySelectorAll(".form__input");
 
         allInput.forEach((item) => {
             if (item.name) {
-                valuesImput[item.name] = item.value
+                valuesImput[item.name] = item.value;
             }
         });
         return valuesImput;
@@ -39,7 +40,5 @@ export default class PopupWithForm extends Popup {
                 this.close();
             });
         }
-
     }
-
 }

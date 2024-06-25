@@ -1,23 +1,21 @@
-
-class FormValidator {
-    constructor(allForms) {
+class FormValidator {    constructor(allForms) {
         this._allForms = allForms;
-        this.enableValidation()
+        this.enableValidation();
     }
-
 
     //Función para mostrar el mensaje de error cuando el usuario introduce datos erroneos en los campos
     _showInputError = (inputElement, errorMessage) => {
-        const errorElement = inputElement.parentElement.querySelector(`.form__error`);
+        const errorElement =
+            inputElement.parentElement.querySelector(`.form__error`);
         inputElement.classList.add("form__input_type_error");
         errorElement.textContent = errorMessage;
         errorElement.classList.add("form__input-error_active");
     };
 
-
     // Función para ocultar el mensaje de error cuando el usuario ponga todos los datos requeridos
     _hideInputError = (inputElement) => {
-        const errorElement = inputElement.parentElement.querySelector(`.form__error`);
+        const errorElement =
+            inputElement.parentElement.querySelector(`.form__error`);
         inputElement.classList.remove("form__input_type_error");
         errorElement.classList.remove("form__input-error_active");
         errorElement.textContent = "";
@@ -29,10 +27,8 @@ class FormValidator {
             this._showInputError(inputElement, inputElement.validationMessage);
         } else {
             this._hideInputError(inputElement);
-
         }
     };
-
 
     //Esta función devuelve true si almenos hay un input no válido en el array
     _hasInvalidInput = (inputList) => {
@@ -53,8 +49,9 @@ class FormValidator {
     //Esta función crea una lista de todos los inpus y de todos los botones. Luego itera sobre estos campos llamando a las funciones anteriores
 
     _setEventListeners(formElement) {
-
-        const inputList = Array.from(formElement.querySelectorAll(".form__input"));
+        const inputList = Array.from(
+            formElement.querySelectorAll(".form__input")
+        );
         const buttonElement = formElement.querySelector(".form__submit");
         inputList.forEach((inputElement) => {
             inputElement.addEventListener("input", () => {
@@ -76,8 +73,6 @@ class FormValidator {
             });
         });
     };
-
 }
-
 
 export default FormValidator;

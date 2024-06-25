@@ -1,6 +1,8 @@
 const allForms = document.querySelectorAll(".form");
 const popupForm = document.querySelector(".popup"); //
-const buttonEdidProfile = document.querySelector(".buttons__item_index_profile");
+const buttonEdidProfile = document.querySelector(
+    ".buttons__item_index_profile"
+);
 const buttonAddCard = document.querySelector(".buttons__item_index_add-card");
 const allOverlay = document.querySelectorAll(".popup__overlay");
 const allInput = document.querySelectorAll(".form__error");
@@ -60,5 +62,5 @@ export {
     buttonRecycle,
     cardsArea,
     initialCards,
-    cardTemplate
+    cardTemplate,
 };

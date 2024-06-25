@@ -1,4 +1,4 @@
-export default class UserInfo { //Es capaz de presentar información sobre el usuario en la página
+export default class UserInfo {    //Es capaz de presentar información sobre el usuario en la página
     constructor({ nameSelector, jobSelector }) {
         this._nameElement = document.querySelector(nameSelector);
         this._jobElement = document.querySelector(jobSelector);
