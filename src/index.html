@@ -162,6 +162,25 @@
                 </div>
             </div>
 
+            <div class="popup popup_delete-card">
+                <div class="popup__overlay"></div>
+                <div class="popup__content">
+                    <div class="popup__close-button">
+                        <img
+                            src="<%=require('./images/Close-Icon.svg')%>"
+                            alt="ícono de cerrar ventana"
+                        />
+                    </div>
+
+                    <form class="form" novalidate>
+                        <h2 class="form__title form__title-delete">
+                            ¿estás seguro...?
+                        </h2>
+                        <input type="submit" class="form__submit" value="Sí" />
+                    </form>
+                </div>
+            </div>
+
             <div class="popup popup_content-image">
                 <div class="popup__overlay"></div>
                 <div class="popup__content popup__content_select">
@@ -198,11 +217,14 @@
                     />
                     <div class="cards__element_item">
                         <h2 class="cards__element_itemTitle"></h2>
-                        <img
-                            class="cards__element_itemImage"
-                            src="<%=require('./images/Vector-corazon.svg')%>"
-                            alt="incono de me gusta"
-                        />
+                        <div class="cards__element_like">
+                            <img
+                                class="cards__element_itemImage"
+                                src="<%=require('./images/Vector-corazon.svg')%>"
+                                alt="incono de me gusta"
+                            />
+                            <h3 class="countlike">50000</h3>
+                        </div>
                     </div>
                 </div>
             </template>

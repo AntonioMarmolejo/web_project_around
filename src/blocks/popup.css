@@ -153,6 +153,11 @@ input::-ms-input-placeholder {
     background-color: rgb(255, 255, 255);
 }
 
+.form__title-delete {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
 .button_inactive {
     color: #b8b8b8;
     background-color: #ededed;
@@ -197,6 +202,10 @@ input::-ms-input-placeholder {
     line-height: 14px;
     align-items: center;
     margin-top: 40px;
+}
+
+.popup_delete-card {
+    border: 1px solid red;
 }
 
 @media screen and (min-width: 320px) and (max-width: 600px) {
