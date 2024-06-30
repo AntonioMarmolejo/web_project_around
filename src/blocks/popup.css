@@ -142,6 +142,20 @@ input::-ms-input-placeholder {
     font-size: 25px;
     font-family: "Inter-Regular", sans-serif;
 }
+.form__submit_confirmation {
+    width: 120px;
+    height: 35px;
+}
+.form__submit_cancel {
+    width: 120px;
+    height: 35px;
+}
+
+.form__buttom {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
 
 .form__submit:hover {
     background-color: rgba(0, 0, 0, 0.827);
@@ -205,7 +219,8 @@ input::-ms-input-placeholder {
 }
 
 .popup_delete-card {
-    border: 1px solid red;
+}
+.popup_avatar {
 }
 
 @media screen and (min-width: 320px) and (max-width: 600px) {

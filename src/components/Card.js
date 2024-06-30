@@ -6,13 +6,11 @@ class Card {
         this._name = data.name;
         this._cardSelector = cardSelector;
         this._handleCardClick = handleCardClick;
+
     }
 
     _getTemplate() {
-        const newElemnt = document
-            .querySelector(this._cardSelector)
-            .content
-            .querySelector(".cards__element")
+        const newElemnt = document.querySelector(this._cardSelector).content.querySelector(".cards__element")
             .cloneNode("true");
 
         return newElemnt;
@@ -26,9 +24,17 @@ class Card {
     }
 
     _handleRemove() {
+        const deleteConfirmation = document.querySelector(".popup_delete-card")
+        const confirm = document.querySelector(".form__submit_confirmation");
         //A la tarjeta creada se le da el Evento click que nos permite eliminar la tarjeta seleccionada
         this._element.querySelector(".cards__element_trast").addEventListener("click", () => {
-            this._element.remove();
+
+            deleteConfirmation.classList.toggle("popup_show");
+            confirm.addEventListener("click", () => {
+                this._element.remove();
+                deleteConfirmation.classList.toggle("popup_show");
+                console.log("¡La terjeta fue eliminada con Éxito!")
+            });
         });
     }
 
@@ -38,6 +44,7 @@ class Card {
             this._handleCardClick({ link: this._link, name: this._name });
         });
     }
+
 
     _setEventListeners() {
         this._handleLikeAndDislike();

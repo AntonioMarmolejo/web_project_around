@@ -16,6 +16,10 @@ import {
     buttonEdidProfile,
     popupProfile,
     popupAddCard,
+    propupDeleteCofirmation,
+    popupEditAvatar,
+    buttonEditAvatar,
+    buttonRecycle
 } from "./utils/constants.js";
 
 //Clase encargada de mostrar la imagen seleccionada en la ventana emergente
@@ -23,13 +27,19 @@ const poputImagen = new PopupWithImage(popupImage);
 poputImagen.setEventListeners();
 
 //Función para editar el perfil del
-const handleCardClick = (data) => {
-    poputImagen.open(data.link, data.name);
-};
+const handleCardClick = (data) => { poputImagen.open(data.link, data.name) };
 
 //Función para crear una nueva tarjeta
 const createCards = (data) => {
-    const cardsIntance = new Card({ data, handleCardClick }, cardTemplate);
+    const cardsIntance = new Card({
+        data, handleCardClick,
+        handleDeleteClick: (carElement) => {
+            currentCard = carElement;
+            popupDeleteCofirmation.open(carElement);
+        }
+    },
+        cardTemplate
+    );
     return cardsIntance.createNewCard();
 };
 
@@ -80,6 +90,22 @@ popupFormContentAddCard.setEventListeners();
 //Codigo para abril el formulario de añadir tarjeta dando click en un boton de abrir el popup
 buttonAddCard.addEventListener("click", () => {
     popupFormContentAddCard.open();
+});
+
+const popupFormEditAvatar = new PopupWithForm(popupEditAvatar, (formData) => {
+}
+);
+popupFormEditAvatar.setEventListeners();
+buttonEditAvatar.addEventListener("click", () => {
+    popupFormEditAvatar.open();
+});
+
+const popupFormDeletedConfirmation = new PopupWithForm(propupDeleteCofirmation, (formData) => {
+});
+popupFormDeletedConfirmation.setEventListeners();
+
+buttonRecycle.addEventListener("click", () => {
+    popupFormDeletedConfirmation.open();
 });
 
 //Validación del formulario

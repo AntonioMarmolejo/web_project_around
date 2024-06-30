@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
+<!DOCTYPE html><html lang="es">
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -28,6 +27,13 @@
 
             <div class="buttons">
                 <div class="buttons buttons__avatar">
+                    <buttom class="buttons__edit">
+                        <img
+                            class="buttom__edit_pencil"
+                            src="<%=require('./images/Vector-pencil2.svg')%>"
+                            alt="icono de pencil"
+                        />
+                    </buttom>
                     <img
                         class="buttons__image"
                         src="<%=require('./images/image.jpg')%>"
@@ -176,7 +182,54 @@
                         <h2 class="form__title form__title-delete">
                             ¿estás seguro...?
                         </h2>
-                        <input type="submit" class="form__submit" value="Sí" />
+                        <div class="form__buttom">
+                            <input
+                                type="submit"
+                                class="form__submit form__submit_confirmation"
+                                value="Sí"
+                            />
+                            <input
+                                type="submit"
+                                class="form__submit form__submit_cancel"
+                                value="Cancelar"
+                            />
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="popup popup_avatar">
+                <div class="popup__overlay"></div>
+                <div class="popup__content">
+                    <div class="popup__close-button">
+                        <img
+                            src="<%=require('./images/Close-Icon.svg')%>"
+                            alt="ícono de cerrar ventana"
+                        />
+                    </div>
+
+                    <form class="form" novalidate>
+                        <h2 class="form__title">Cambiar foto de perfil</h2>
+
+                        <label class="form__label" for="place-input">
+                            <input
+                                type="text"
+                                class="form__input"
+                                id="place-input"
+                                name="newplace"
+                                placeholder="Url de la nueva foto"
+                                value=""
+                                minlength="2"
+                                maxlength="30"
+                                required
+                            />
+                            <span class="form__error form__error_type"> </span>
+                        </label>
+                        <input
+                            type="submit"
+                            class="form__submit"
+                            value="Crear"
+                        />
                     </form>
                 </div>
             </div>
