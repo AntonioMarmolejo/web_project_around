@@ -111,7 +111,7 @@
 
                         <input
                             type="submit"
-                            class="form__submit"
+                            class="form__submit_newPhoto"
                             value="Guardar"
                         />
                     </form>
@@ -161,7 +161,7 @@
 
                         <input
                             type="submit"
-                            class="form__submit"
+                            class="form__submit_newPhoto"
                             value="Crear"
                         />
                     </form>
@@ -185,12 +185,12 @@
                         <div class="form__buttom">
                             <input
                                 type="submit"
-                                class="form__submit form__submit_confirmation"
+                                class="form__submit_newPhoto form__submit_newPhoto_confirmation"
                                 value="Sí"
                             />
                             <input
-                                type="submit"
-                                class="form__submit form__submit_cancel"
+                                type="button"
+                                class="form__submit_newPhoto form__submit_cancel"
                                 value="Cancelar"
                             />
                         </div>
@@ -213,7 +213,7 @@
 
                         <label class="form__label" for="place-input">
                             <input
-                                type="text"
+                                type="url"
                                 class="form__input"
                                 id="place-input"
                                 name="newplace"
@@ -228,7 +228,7 @@
                         <input
                             type="submit"
                             class="form__submit"
-                            value="Crear"
+                            value="Actualizar"
                         />
                     </form>
                 </div>
@@ -256,7 +256,7 @@
             <div class="cards"></div>
 
             <template id="newElement">
-                <div class="cards__element">
+                <div class="cards__element" id="cards__element_trastId">
                     <div class="cards__element_trast">
                         <img
                             src="<%=require('./images/Group__reciclaje.svg')%>"
@@ -276,7 +276,7 @@
                                 src="<%=require('./images/Vector-corazon.svg')%>"
                                 alt="incono de me gusta"
                             />
-                            <h3 class="countlike">50000</h3>
+                            <h3 class="countlike"></h3>
                         </div>
                     </div>
                 </div>

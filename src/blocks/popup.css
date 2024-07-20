@@ -219,6 +219,7 @@ input::-ms-input-placeholder {
 }
 
 .popup_delete-card {
+    z-index: 2;
 }
 .popup_avatar {
 }

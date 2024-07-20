@@ -55,7 +55,8 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: "./src/index.html" // ruta a nuestro archivo index.html
+            template: "./src/index.html", // ruta a nuestro archivo index.html
+            scriptLoading: "blocking", //Con este código se le indica a webpack que soloque el javascript al final del DOM
         }),
         new MiniCssExtractPlugin() // conecta el plugin para fusionar archivos CSS
     ]
