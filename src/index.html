@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="es">
+<!DOCTYPE html>
+<html lang="es">
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -111,7 +112,7 @@
 
                         <input
                             type="submit"
-                            class="form__submit_newPhoto"
+                            class="form__submit button_inactive"
                             value="Guardar"
                         />
                     </form>
@@ -161,7 +162,7 @@
 
                         <input
                             type="submit"
-                            class="form__submit_newPhoto"
+                            class="form__submit button_inactive"
                             value="Crear"
                         />
                     </form>
@@ -185,12 +186,12 @@
                         <div class="form__buttom">
                             <input
                                 type="submit"
-                                class="form__submit_newPhoto form__submit_newPhoto_confirmation"
+                                class="form__submit form__submit_confirmation"
                                 value="Sí"
                             />
                             <input
                                 type="button"
-                                class="form__submit_newPhoto form__submit_cancel"
+                                class="form__submit form__submit_cancel"
                                 value="Cancelar"
                             />
                         </div>
@@ -211,23 +212,23 @@
                     <form class="form" novalidate>
                         <h2 class="form__title">Cambiar foto de perfil</h2>
 
-                        <label class="form__label" for="place-input">
+                        <label class="form__label" for="avatar-input">
                             <input
                                 type="url"
                                 class="form__input"
-                                id="place-input"
-                                name="newplace"
+                                id="avatar-input"
+                                name="avatar    "
                                 placeholder="Url de la nueva foto"
                                 value=""
                                 minlength="2"
-                                maxlength="30"
+                                maxlength="100"
                                 required
                             />
                             <span class="form__error form__error_type"> </span>
                         </label>
                         <input
                             type="submit"
-                            class="form__submit"
+                            class="form__submit form__submit_photo button_inactive"
                             value="Actualizar"
                         />
                     </form>

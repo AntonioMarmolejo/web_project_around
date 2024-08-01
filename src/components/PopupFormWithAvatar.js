@@ -1,6 +1,6 @@
-import Popup from "./Popup.js";
+import Popup from "./Popup.js"
 
-export default class PopupWithForm extends Popup {
+export default class PopupFormWithAvatar extends Popup {
     constructor(popupSelector, submiCallback) {
         super(popupSelector);
         this._submitButton = submiCallback;
@@ -33,8 +33,11 @@ export default class PopupWithForm extends Popup {
         this._form.addEventListener("submit", (evt) => {//Al momento de presionar el boton de este formulario has los siguiente
             evt.preventDefault();//Evita el envio por defecto del formulario y a cambio de eso haz esto
             const formData = this._getInputValues(); //Almacena en esta variable todos los valores que retorna esta función
-            this._submitButton(formData); //Pásale como parámetro estos valores a esta otra función para realizar trabajos
-            this.close(); //Cierra el formulario
+            this._submitButton(formData)
+                .then(() => {
+                    this.close();
+                })
+                .catch(err => { console.log("Error: " + err) })
         });
 
         const closeButton = this._form.querySelector(this._closeButonSelector);

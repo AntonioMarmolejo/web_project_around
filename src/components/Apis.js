@@ -10,17 +10,28 @@ class Api {
         this._token = token;
     };
 
-    //Metodos para cargar los datos del usuario al cargar la página
+    getHeaders() {
+        return {
+            'Authorization': this._token,
+            'Content-Type': 'application/json'
+        }
+    }
+    _getCheckResponse(res) {
+        if (res.ok) {
+            return res.json();
+        }
+        return Promise.reject(`Error: ${res.status}`);
+    }
+
+    //Metodos para cargar los datos del usuario al cargar la página en este caso el usuario soy yo.
     getUserInfo() {
         return fetch(`${this._url}/users/me`, //Raliza la petición al servidor de la información del usuario
             {
                 method: 'GET',
-                headers: {
-                    "Authorization": this._token
-                }
+                headers: this.getHeaders()
             }
         )
-            .then((res) => res.json()) //Convierte los datos en formato JSON
+            .then(this._getCheckResponse) //Convierte los datos en formato JSON
             .catch((err) => {
                 console.log('Error:', err); //Si la respuesta no es correcta se imprimirá un mensaje de error
             })
@@ -31,12 +42,10 @@ class Api {
         return fetch(`${this._url}/cards`, //Realiza la petición al servidor de las tarjetas principales para cargarlas
             {
                 method: "GET",
-                headers: {
-                    "Authorization": this._token
-                }
+                headers: this.getHeaders()
             }
         )
-            .then((res) => res.json()) //Convierte los datos recividos en formato JSON
+            .then(this._getCheckResponse) //Convierte los datos recividos en formato JSON
             .catch((err) => {
                 console.log('Error:', err) //Si la respuesta es incorrecta imprimirá un mensaje de error
             })
@@ -46,16 +55,10 @@ class Api {
     updateUser(name, about) {
         return fetch(`${this._url}/users/me`, { //Realiza una petición de cambio de datos del perfil de usuario
             method: "PATCH",
-            headers: {
-                "Authorization": this._token,
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                name: name,
-                about: about,
-            })
+            headers: this.getHeaders(),
+            body: JSON.stringify({ name, about })
         })
-            .then((res) => res.json()) //Convierte los datos recibios en formato JSON
+            .then(this._getCheckResponse) //Convierte los datos recibios en formato JSON
             .catch((err) => {
                 console.log("Error: ", err) //Si algo sale mal me mostrará un mensaje de error
             });
@@ -63,18 +66,16 @@ class Api {
 
     //Método para actualizar la foto del perfil de usuario
     updateUserPhoto(link) {
-        return fetch(`${this._url}/users/me/avatar`, { //Realiza una petición de cambio de la foto de perfil de usuario
+        return fetch(`${this._url}/users/me`, { //Realiza una petición de cambio de la foto de perfil de usuario
             method: 'PATCH',
-            headers: {
-                "Authorization": this._token,
-            },
-            body: JSON.stringify({
-                avatar: link,
-            })
+            headers: this.getHeaders(),
+            body: JSON.stringify({ avatar: link }),
         })
-            .this((res) => res.json()) //Conviete los datos en formato JSON
-            .catch((err) => {
-                console.log("Error:", err); //Si se presenta un error nos mostrará un mensaje en la consola con el error
+            .then(
+                this._getCheckResponse) //Conviete los datos en formato JSON
+            .then(resp => {
+                console.log("Respuesta de API; ", resp) //Si se presenta un error nos mostrará un mensaje en la consola con el error
+                return resp;
             })
     }
 
@@ -82,44 +83,35 @@ class Api {
     addCard(name, link) {
         return fetch(`${this._url}/cards`, { //Realiza una petición para agregar una vueva tarjeta al servidor
             method: "POST",
-            headers: {
-                "Authorization": this._token,
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                link: link,
-                name: name,
-            })
+            headers: this.getHeaders(),
+            body: JSON.stringify({ name, link })
         })
-            .then((res) => res.json()) //Convierte los datos en formato JSON
+            .then(this._getCheckResponse) //Convierte los datos en formato JSON
             .catch((err) => {
                 console.log("Error: ", err) // Si algo sale mal me mostrará un mensaje de error
             })
 
     }
 
-    //Método para mostrar la cantidad de like de cada tarjeta
+    //Método para mostrar la cantidad de like de cada tarjeta dependiendo de su identidad de usuario
     linkCard(cardId) {
-        return fetch(`${this._url}/cards/likes/${cardId}`, { //Se realiza una petición para elimiar una tarjeta seleccionada
+        return fetch(`${this._url}/cards/likes/${cardId}`, { //Se realiza una petición para agregar un like
             method: 'PUT',
-            headers: {
-                "Authorization": this._token,
-            },
+            headers: this.getHeaders(),
         })
-            .then((res) => res.json())//Covierte los datos en formato JSON
+            .then(this._getCheckResponse)//Covierte los datos en formato JSON
             .catch((err) => {
                 console.log("Error: ", err) //Si algo sale mal se mostrará un mensaje de error
             })
     }
+
     //Método para eliminar una tarjeta seleccionada
     deleteCard(cardId) {
         return fetch(`${this._url}/cards/${cardId}`, { //Se realiza una petición para elimiar una tarjeta seleccionada
             method: 'DELETE',
-            headers: {
-                "Authorization": this._token,
-            }
+            headers: this.getHeaders(),
         })
-            .then((res) => res.json())//Covierte los datos en formato JSON
+            .then(this._getCheckResponse)//Covierte los datos en formato JSON
             .catch((err) => {
                 console.log("Error: ", err) //Si algo sale mal se mostrará un mensaje de error
             })
@@ -129,11 +121,9 @@ class Api {
     deleteCardLink(cardId) {
         return fetch(`${this._url}/cards/likes/${cardId}`, { //Se realiza una petición para elimiar una tarjeta seleccionada
             method: 'DELETE',
-            headers: {
-                "Authorization": this._token,
-            },
+            headers: this.getHeaders(),
         })
-            .then((res) => res.json())//Covierte los datos en formato JSON
+            .then(this._getCheckResponse)//Covierte los datos en formato JSON
             .catch((err) => {
                 console.log("Error: ", err) //Si algo sale mal se mostrará un mensaje de error
             })

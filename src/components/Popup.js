@@ -4,6 +4,7 @@ export default class Popup {
         this._popupSelector = popupSelector;
         this._popupElement = document.querySelector(this._popupSelector);
         this._handleEscClose = this._handleEscClose.bind(this);
+        this._buttonPopup = this._popupElement.querySelector(".form__submit")
     }
 
     //Método público para abrir el popup o la imagen seleccionada
@@ -18,6 +19,7 @@ export default class Popup {
         //Cerrar el popup
         this._popupElement.classList.remove("popup_show");
         document.removeEventListener("keydown", this._handleEscClose);
+        this._buttonPopup.classList.add("button_inactive");
     }
 
     //Método privado para cerrar el popup al pulsar la tecla Esc

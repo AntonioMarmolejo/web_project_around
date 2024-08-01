@@ -1,4 +1,5 @@
-class FormValidator {    constructor(allForms) {
+class FormValidator {
+    constructor(allForms) {
         this._allForms = allForms;
         this.enableValidation();
     }
@@ -49,9 +50,7 @@ class FormValidator {    constructor(allForms) {
     //Esta función crea una lista de todos los inpus y de todos los botones. Luego itera sobre estos campos llamando a las funciones anteriores
 
     _setEventListeners(formElement) {
-        const inputList = Array.from(
-            formElement.querySelectorAll(".form__input")
-        );
+        const inputList = Array.from(formElement.querySelectorAll(".form__input"));
         const buttonElement = formElement.querySelector(".form__submit");
         inputList.forEach((inputElement) => {
             inputElement.addEventListener("input", () => {

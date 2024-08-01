@@ -13,9 +13,9 @@ const buttonClose = document.querySelector(".popup__close-button");
 const buttonLike = document.querySelector(".cards__element_item-imagen");
 const buttonRecycle = document.querySelectorAll(".cards__element_trast");
 const buttonEditAvatar = document.querySelector(".buttons__edit");
-const buttonPhotoProfile = document.querySelector(".form__submit_newPhoto");
+const avatarPhoto = document.querySelector(".buttons__image"); //Aquí en donde se va a guardar
+// const avatarInput = document.querySelector("#avatar-input");//De este formulario obtendremos los datos
 const cardTemplate = "#newElement";
-const cardsArea = document.querySelector(".cards");
 
 // const initialCards = [
 //     {
@@ -66,5 +66,5 @@ export {
     propupDeleteCofirmation,
     popupEditAvatar,
     buttonEditAvatar,
-    buttonPhotoProfile,
+    avatarPhoto,
 };

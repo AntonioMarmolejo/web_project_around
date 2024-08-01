@@ -3,7 +3,7 @@ function resetForms(forms) {
     forms.forEach((form) => {
         // Resetea cada entrada de los formularios para eliminar los datos que quedan
         form.reset();
-        form.querySelector(".form__submit").classList.add("button_inactive");
+        form.querySelector(".form__submit").classList.add("button_inactive")
     });
 }
 
