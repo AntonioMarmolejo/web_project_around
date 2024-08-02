@@ -8,7 +8,6 @@ import Section from "./components/Section.js";
 import UserInfo from "./components/UserInfo.js";
 import PopupWithConfirmation from "./components/PopupWithConfirmation.js";
 import { api } from "./components/Apis.js";
-import PopupFormWithAvatar from "./components/PopupFormWithAvatar.js";
 
 import {
     popupImage,
@@ -23,7 +22,6 @@ import {
     buttonEditAvatar,
     buttonRecycle,
     avatarPhoto,
-    // avatarInput,
 } from "./utils/constants.js";
 
 
@@ -85,9 +83,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
     //Instancia de la clase UserInfo donde le pasamos las etiquetas para que la clase seleccione donde van a ir los nombre por defecto y los que actualicemos
-    const userData = new UserInfo({ nameSelector: ".buttons__name", jobSelector: ".buttons__explorer" });
+    const userData = new UserInfo({ nameSelector: ".buttons__name", jobSelector: ".buttons__explorer", avatarSelector: ".buttons__image" });
 
-    userData.setUserInfo({ name: currentUser.name, job: currentUser.about });
+    userData.setUserInfo({ name: currentUser.name, job: currentUser.about, avatar: currentUser.avatar }); //Antualiza los datos de usuario al cargar la página, nombre, actividad, avatar.
 
 
 
@@ -95,7 +93,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const popupFormEditProfile = new PopupWithForm(popupProfile, (formData) => {
         api.updateUser(formData.name, formData.activity)
             .then(() => {
-                userData.setUserInfo({ name: formData.name, job: formData.activity });
+                userData.setUserInfo({ name: formData.name, job: formData.activity, avatar: currentUser.avatar });
                 popupFormEditProfile.close();
                 resetForms(allForms);
             })

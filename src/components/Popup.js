@@ -19,7 +19,7 @@ export default class Popup {
         //Cerrar el popup
         this._popupElement.classList.remove("popup_show");
         document.removeEventListener("keydown", this._handleEscClose);
-        this._buttonPopup.classList.add("button_inactive");
+        // this._buttonPopup.classList.add("button_inactive");
     }
 
     //Método privado para cerrar el popup al pulsar la tecla Esc
