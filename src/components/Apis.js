@@ -66,7 +66,7 @@ class Api {
 
     //Método para actualizar la foto del perfil de usuario
     updateUserPhoto(link) {
-        return fetch(`${this._url}/users/me`, { //Realiza una petición de cambio de la foto de perfil de usuario
+        return fetch(`${this._url}/users/me/avatar`, { //Realiza una petición de cambio de la foto de perfil de usuario
             method: 'PATCH',
             headers: this.getHeaders(),
             body: JSON.stringify({ avatar: link }),

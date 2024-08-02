@@ -22,7 +22,6 @@ import {
     popupEditAvatar,
     buttonEditAvatar,
     buttonRecycle,
-    buttonPhotoProfile,
     avatarPhoto,
     // avatarInput,
 } from "./utils/constants.js";
@@ -125,11 +124,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
     //Intancia de PopupWhitForm para poder cargar la foto del avatar por defecto de los datos obtenidos del servidor
-    const popupFormEditAvatar = new PopupFormWithAvatar(popupEditAvatar, (formData) => {
-        console.log(formData)
+    const popupFormEditAvatar = new PopupWithForm(popupEditAvatar, (formData) => {
         return api.updateUserPhoto(formData.avatar)
             .then((resp) => {
-                console.log(resp)
                 if (resp && resp.avatar) {
                     avatarPhoto.src = resp.avatar;
                 } else {
