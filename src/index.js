@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     //Instanciamos la clase PopupWithForm para editar los datos perfil del usuario
     const popupFormEditProfile = new PopupWithForm(popupProfile, (formData) => {
-        api.updateUser(formData.name, formData.activity)
+        return api.updateUser(formData.name, formData.activity)
             .then(() => {
                 userData.setUserInfo({ name: formData.name, job: formData.activity, avatar: currentUser.avatar });
                 popupFormEditProfile.close();
@@ -106,14 +106,14 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     //Instancia de popupWithForm para manejar el formulario de añadir la tarjeta
     const popupFormContentAddCard = new PopupWithForm(popupAddCard, (formData) => {
-        api.addCard(formData.newplace, formData.enlace)
+        return api.addCard(formData.newplace, formData.enlace)
             .then(card => {
                 const newCard = createCards(card)
                 document.querySelector(".cards").prepend(newCard);
                 popupFormContentAddCard.close();
                 resetForms(allForms);
             })
-            .catch(err => { console.log(err) });
+            .catch(err => { console.log(err) })
     });
     popupFormContentAddCard.setEventListeners();
 

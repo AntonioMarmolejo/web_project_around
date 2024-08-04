@@ -13,7 +13,7 @@ const buttonClose = document.querySelector(".popup__close-button");
 const buttonLike = document.querySelector(".cards__element_item-imagen");
 const buttonRecycle = document.querySelectorAll(".cards__element_trast");
 const buttonEditAvatar = document.querySelector(".buttons__edit");
-const avatarPhoto = document.querySelector(".buttons__image"); //Aquí en donde se va a guardar
+const avatarPhoto = document.querySelector(".buttons__image"); //Aquí es donde se va a guardar la direccion del nuevo avatar
 const cardTemplate = "#newElement";
 
 export {

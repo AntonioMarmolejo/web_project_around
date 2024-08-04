@@ -5,6 +5,8 @@ export default class PopupWithForm extends Popup {
         super(popupSelector);
         this._submitButton = submiCallback;
         this._form = document.querySelector(popupSelector).querySelector(".form");
+        this._submitButtons = document.querySelector(popupSelector).querySelector(".form__submit"); //Selector del boton submit
+        this._initialSubmitButtonText = this._submitButtons.value; //Texto inicial del boton
     }
 
     //Método que nos retorna todos los valores de los campos de entrada de los formularios para poder trabajar con ellos.
@@ -25,15 +27,17 @@ export default class PopupWithForm extends Popup {
     close() {
         this._form.reset(); // Reiniciar el formulario al cerrar el popup
         super.close();
-
     }
 
     setEventListeners() {
         super.setEventListeners();
         this._form.addEventListener("submit", (evt) => {//Al momento de presionar el boton de este formulario has los siguiente
             evt.preventDefault();//Evita el envio por defecto del formulario y a cambio de eso haz esto
+            this._submitButtons.value = "Guardando..."; //Cambiar el texto del boton a guardando.
             const formData = this._getInputValues(); //Almacena en esta variable todos los valores que retorna esta función
-            this._submitButton(formData); //Pásale como parámetro estos valores a esta otra función para realizar trabajos
+            this._submitButton(formData).finally(() => { //Una vez finalizada la petición de datos
+                this._submitButtons.value = this._initialSubmitButtonText //Buelve el boton a su estado normal.
+            })
             this.close(); //Cierra el formulario
         });
 
