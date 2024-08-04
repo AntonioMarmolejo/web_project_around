@@ -73,9 +73,8 @@ class Api {
         })
             .then(
                 this._getCheckResponse) //Conviete los datos en formato JSON
-            .then(resp => {
-                console.log("Respuesta de API; ", resp) //Si se presenta un error nos mostrará un mensaje en la consola con el error
-                return resp;
+            .catch(err => {
+                console.log("Error: ", err) //Si se presenta un error nos mostrará un mensaje en la consola con el error
             })
     }
 

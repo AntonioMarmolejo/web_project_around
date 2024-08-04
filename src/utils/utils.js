@@ -3,7 +3,13 @@ function resetForms(forms) {
     forms.forEach((form) => {
         // Resetea cada entrada de los formularios para eliminar los datos que quedan
         form.reset();
-        form.querySelector(".form__submit").classList.add("button_inactive")
+
+        const submitButtons = form.querySelectorAll('.form__submit');
+        submitButtons.forEach((button) => {
+            if (!button.classList.contains("form__submit_confirmation")) {
+                button.classList.add("button_inactive")
+            }
+        })
     });
 }
 

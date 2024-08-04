@@ -35,8 +35,5 @@ export default class PopupWithConfirmations extends Popup {
             evt.preventDefault();
             this.submitCallback();
         });
-        this._form.querySelector('.form__submit_cancel').addEventListener("click", () => {
-            this.close();
-        });
     }
 }

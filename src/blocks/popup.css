@@ -146,10 +146,6 @@ input::-ms-input-placeholder {
     width: 120px;
     height: 35px;
 }
-.form__submit_cancel {
-    width: 120px;
-    height: 35px;
-}
 
 .form__buttom {
     display: flex;

@@ -11,8 +11,8 @@ const propupDeleteCofirmation = ".popup_delete-card";
 const popupEditAvatar = ".popup_avatar";
 const buttonClose = document.querySelector(".popup__close-button");
 const buttonLike = document.querySelector(".cards__element_item-imagen");
-const buttonRecycle = document.querySelectorAll(".cards__element_trast");
-const buttonEditAvatar = document.querySelector(".buttons__edit");
+const buttonRecycle = document.querySelectorAll(".cards__element_trast"); //Botón para darle click y se abra la ventana de confirmar si quiere eliminar o no
+const buttonEditAvatar = document.querySelector(".buttons__edit"); //Botón para al darle click se abra el formulario para actualizar el avatar
 const avatarPhoto = document.querySelector(".buttons__image"); //Aquí es donde se va a guardar la direccion del nuevo avatar
 const cardTemplate = "#newElement";
 
